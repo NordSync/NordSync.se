@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="NordSync omvandlar banbrytande AI till skräddarsydda, intelligenta ekosystem för er framgång. Vi bygger system som lär sig och växer med er verksamhet. Framtiden Förenklad.">
+    <meta name="description" content="NordSync bygger med banbrytande AI – från enskilda, intelligenta agenter som automatiserar era processer, till skräddarsydda ekosystem för er framgång.">
     <title>NordSync AB - Framtiden Förenklad</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,7 +26,7 @@
             display: flex;
             flex-direction: column;
         }
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             body {
                 padding-top: 116px; 
             }
@@ -56,6 +56,7 @@
 
         .page-content-padding {
              padding-top: 4rem;
+             padding-bottom: 4rem;
         }
 
         .space-background-section {
@@ -65,29 +66,22 @@
             width: 100%; 
             display: flex;
             flex-direction: column; 
-            align-items: center; 
-            padding-top: 4rem; 
-            padding-bottom: 4rem;
+            align-items: center;
         }
-        #hero.space-background-section,
-        #karriar.space-background-section,
-        #vilka-ar-vi.space-background-section,
-        #boka-samtal-skraddarsydd.space-background-section, 
-        #boka-samtal-portal.space-background-section,
-        #ai-reaktor.space-background-section,
-        #ai-portal.space-background-section { 
-            padding-top: 0; 
+        
+        /* Regel ENDAST för helskärmssektioner */
+        #hero,
+        #ai-reaktor,
+        #ai-portal { 
+            justify-content: center;
+            padding-top: 2rem; 
+            padding-bottom: 2rem;
             min-height: calc(100vh - 80px); 
-            justify-content: center; 
         }
-         @media (min-width: 768px) {
-            #hero.space-background-section,
-            #karriar.space-background-section,
-            #vilka-ar-vi.space-background-section,
-            #boka-samtal-skraddarsydd.space-background-section, 
-            #boka-samtal-portal.space-background-section,
-            #ai-reaktor.space-background-section,
-            #ai-portal.space-background-section {
+         @media (min-width: 1024px) {
+            #hero,
+            #ai-reaktor,
+            #ai-portal {
                  min-height: calc(100vh - 116px); 
             }
          }
@@ -325,18 +319,9 @@
         }
 
         /* --- HERO & INTERACTIVE LOGO STYLING --- */
-        #hero .section-content-wrapper, #karriar .section-content-wrapper {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center; 
-            flex-grow: 1;
-        }
-        
         #hero-logo-wrapper {
             width: 100%;
-            max-width: 500px; 
-            margin-bottom: 1.5rem;
+            max-width: 300px;
             cursor: pointer;
             transition: transform 0.4s ease, filter 0.5s ease;
             filter: drop-shadow(0 0 8px rgba(var(--nord-sync-cyan-rgb), 0.2));
@@ -353,16 +338,12 @@
             height: auto;
         }
         
-        @media (min-width: 768px) {
+        @media (min-width: 1024px) {
             #hero-logo-wrapper {
-                max-width: 650px;
+                max-width: 400px;
             }
         }
         
-        #hero-headline {
-            margin-bottom: 2rem;
-            font-weight: 700;
-        }
         /* --- SLUT HERO ÅTGÄRD --- */
         
         /* AI-Reaktor Styling */
@@ -760,8 +741,10 @@
         .team-grid {
             display: grid; gap: 2.5rem;
         }
-        @media (min-width: 640px) { .team-grid.team-members { grid-template-columns: repeat(3, 1fr); } }
-        @media (min-width: 768px) { .team-grid.advisors { grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 768px) { 
+            .team-grid.team-members { grid-template-columns: repeat(2, 1fr); }
+            .team-grid.advisors { grid-template-columns: repeat(2, 1fr); } 
+        }
         
         .team-card {
             display: flex;
@@ -864,22 +847,24 @@
     <main> 
         <section id="hero" class="space-background-section">
             <div class="stars-background opacity-50" aria-hidden="true"></div>
-            <div class="section-content-wrapper text-center">
-                
-                <div id="hero-logo-wrapper" onclick="showPage('om-oss');">
-                    <img src="https://raw.githubusercontent.com/NordSync/Logga-text/main/Logo%20final.svg" alt="NordSync Logotyp med text">
-                </div>
-                                
-                <h1 id="hero-headline" class="text-5xl md:text-6xl font-bold leading-tight drop-shadow-lg" style="color: var(--nord-sync-light-accent);">
-                    Framtiden Förenklad
-                </h1>
-                
-                <p class="text-lg md:text-xl text-sky-100 mb-10 max-w-3xl mx-auto drop-shadow-sm">
-                   Vi omvandlar banbrytande AI till <strong>skräddarsydda, intelligenta ekosystem</strong> för er framgång. Med Nordisk Atom-Optimism bygger vi system som inte bara automatiserar, utan <strong>lär sig och växer med er verksamhet</strong> – förankrade i mänsklig insikt, drivna av teknologisk precision.
-                </p>
-                <div class="space-y-4 md:space-y-0 md:space-x-6">
-                    <a href="#" onclick="showPage('ai-reaktor'); return false;" class="btn-primary inline-block w-full md:w-auto">Upptäck Vår AI-Reaktor</a>
-                    <a href="#" onclick="showPage('ai-portal'); return false;" class="btn-secondary-on-dark inline-block w-full md:w-auto">Utforska AI-Portalen</a>
+            <div class="section-content-wrapper">
+                <div class="flex flex-col items-center gap-y-8">
+                    <div id="hero-logo-wrapper" onclick="showPage('om-oss');">
+                        <img src="https://raw.githubusercontent.com/NordSync/Logga-text/main/Logo%20final.svg" alt="NordSync Logotyp med text">
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl font-bold leading-tight drop-shadow-lg text-center" style="color: var(--nord-sync-light-accent);">
+                        Framtiden Förenklad
+                    </h1>
+                    
+                    <p class="text-lg md:text-xl text-sky-100 max-w-3xl mx-auto drop-shadow-sm text-center">
+                       Vi bygger med banbrytande AI – från enskilda, <strong>intelligenta agenter</strong> som automatiserar era processer, till skräddarsydda <strong>intelligenta ekosystem</strong> för er framgång. Med Nordisk Atom-Optimism skapar vi system som inte bara automatiserar, utan <strong>lär sig och växer med er verksamhet</strong> – förankrade i mänsklig insikt, drivna av teknologisk precision.
+                    </p>
+
+                    <div class="space-y-4 md:space-y-0 md:space-x-6">
+                        <a href="#" onclick="showPage('ai-reaktor'); return false;" class="btn-primary inline-block w-full md:w-auto">Upptäck Vår AI-Reaktor</a>
+                        <a href="#" onclick="showPage('ai-portal'); return false;" class="btn-secondary-on-dark inline-block w-full md:w-auto">Utforska AI-Portalen</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -903,7 +888,7 @@
                     </div>
                 </div>
                 <p class="text-center text-content-dark-bg max-w-2xl mx-auto mt-6 text-md" id="vennTargetText">
-                    Vi kombinerar djup branschexpertis med avancerad AI-teknik för att leverera resultat i den verkliga världen.
+                    AI är bara ett verktyg. Verkligt värde skapas när det förankras i er unika expertis. Det är i den syntesen vi bygger intelligenta system som levererar mätbar avkastning.
                 </p>
             </div>
         </section>
@@ -921,9 +906,9 @@
                         <div class="service-pillar-icon-container self-start mb-4">
                             <i class="ph-rocket-launch service-pillar-icon text-3xl"></i>
                         </div>
-                        <h3 class="text-2xl font-semibold text-heading-dark-bg mb-3">Skräddarsydda AI-Lösningar</h3>
+                        <h3 class="text-2xl font-semibold text-heading-dark-bg mb-3">Intelligenta Agenter & AI-System</h3>
                         <p class="text-content-dark-bg mb-6 leading-relaxed text-sm flex-grow">
-                            Driv intäkter och effektivitet med våra specialbyggda AI-system och intelligenta agenter, designade för AI-tidsåldern. Vi förvandlar komplexa processer till kraftfulla, automatiserade lösningar.
+                            Vi designar och bygger allt från enskilda, kraftfulla intelligenta agenter som löser specifika problem, till fullt integrerade AI-system som sömlöst kopplar samman era viktigaste processer.
                         </p>
                         <div class="mt-auto">
                             <button type="button" onclick="showPage('boka-samtal-skraddarsydd'); return false;" class="btn-primary text-sm w-full mb-3">Boka Strategisamtal</button>
@@ -957,7 +942,7 @@
             </div>
         </section>
 
-        <section id="om-oss" class="space-background-section py-20 lg:py-28" style="display: none;">
+        <section id="om-oss" class="space-background-section page-content-padding" style="display: none;">
             <div class="stars-background opacity-40" aria-hidden="true"></div>
             <div class="section-content-wrapper" id="vilka-ar-vi-content">
                 <div class="text-center mb-16 lg:mb-20">
@@ -978,11 +963,10 @@
   <span class="syntax-function">constructor</span>() {
     <span class="syntax-comment">// Vi fastslår följande principer:</span>
     <span class="syntax-keyword">this</span>.kärnvärden = [
-      <span class="syntax-string">'Innovation'</span>,    <span class="syntax-comment">// Omvandlar idéer till konkreta lösningar.</span>
-      <span class="syntax-string">'Accessibilitet'</span>,  <span class="syntax-comment">// Garanterar att teknologin är nåbar för alla.</span>
+      <span class="syntax-string">'Innovation'</span>,    <span class="syntax-comment">// Omsätter vision till fungerande kod.</span>
+      <span class="syntax-string">'Accessibilitet'</span>,  <span class="syntax-comment">// Designar gränssnitt som gör avancerad teknik enkel.</span>
       <span class="syntax-string">'Suveränitet'</span>,    <span class="syntax-comment">// Rätten att äga och förvalta sina digitala tillgångar.</span>
       <span class="syntax-string">'Integritet'</span>,      <span class="syntax-comment">// Skyddar personlig data och privatliv.</span>
-      <span class="syntax-string">'Agilitet'</span>,        <span class="syntax-comment">// Anpassar oss snabbt i en värld av förändring.</span>
       <span class="syntax-string">'Skalbarhet'</span>      <span class="syntax-comment">// Bygger för dagens behov och framtida tillväxt.</span>
     ];
   }
@@ -996,16 +980,16 @@
                 
                 <div class="text-center mb-20 lg:mb-28">
                     <h3 class="section-title text-3xl md:text-4xl mb-12">Vår digitala <span class="section-title-accent relative">ryggrad</span></h3>
-                    <div class="team-grid team-members">
+                    <div class="team-grid team-members max-w-4xl mx-auto">
                         <div class="team-card expandable-card" onclick="toggleTeamCard(this)">
                             <div class="team-card-content">
                                 <i class="ph-rocket-launch team-member-icon"></i>
                                 <h4 class="text-xl font-semibold text-heading-dark-bg mb-1">Gustav Hemmingsson</h4>
-                                <p class="text-white font-semibold text-sm mb-2">VD & Affärsstrategi</p>
+                                <p class="text-white font-semibold text-sm mb-2">VD & Systemarkitekt</p>
                                 <p class="text-content-dark-bg">Gustav är grundaren av NordSync och den som bygger broar mellan affärsbehov och banbrytande AI-potential.</p>
                                 <div class="team-card-details">
                                     <hr class="border-t border-sky-700/50 my-4">
-                                    <p class="text-content-dark-bg mt-2">Med en bred förståelse för både strategiska affärsmål och teknologins innersta väsen, har han en unik förmåga att förenkla det komplicerade och göra AI:ns möjligheter konkreta. Han arbetar i nära partnerskap med våra kunder för att designa strategier som leder till konkreta, effektiva och lönsamma AI-system.</p>
+                                    <p class="text-content-dark-bg mt-2">Med en bred förståelse för både strategiska affärsmål och teknologins innersta väsen, har han en unik förmåga att förenkla det komplicerade och göra AI:ns möjligheter konkreta. Han arbetar i nära partnerskap med våra kunder för att designa strategier som leder till effektiva och lönsamma AI-system.</p>
                                     <a href="mailto:gustav@nordsync.se" class="nord-accent-text font-medium mt-4 block text-sm hover:underline">gustav@nordsync.se</a>
                                 </div>
                             </div>
@@ -1014,25 +998,12 @@
                             <div class="team-card-content">
                                 <i class="ph-atom team-member-icon"></i>
                                 <h4 class="text-xl font-semibold text-heading-dark-bg mb-1">Mariana Malihniolzakerani</h4>
-                                <p class="text-white font-semibold text-sm mb-2">AI & Analys</p>
-                                <p class="text-content-dark-bg">Mariana är den analytiska motorn i NordSync. Med en passion för att lösa komplexa problem och en akademisk grund i tillämpad AI, designar hon de intelligenta system som ligger till grund för våra lösningar.</p>
+                                <p class="text-white font-semibold text-sm mb-2">Lead AI Engineer</p>
+                                <p class="text-content-dark-bg">Mariana är den tekniska motorn i NordSync. Hon designar och bygger de intelligenta agenter och den robusta ryggrad som tillsammans bildar våra AI-system.</p>
                                 <div class="team-card-details">
                                     <hr class="border-t border-sky-700/50 my-4">
-                                    <p class="text-content-dark-bg mt-2">Hennes styrka är att översätta teoretiska modeller till praktiska, effektiva AI-agenter som förstår och agerar på våra kunders unika behov.</p>
+                                    <p class="text-content-dark-bg mt-2">Med en passion för att lösa komplexa problem omvandlar hon strategiska visioner till säker, skalbar och effektiv kod. Hennes unika styrka är att översätta avancerade modeller till praktiska AI-agenter som förstår och agerar på era unika behov.</p>
                                     <a href="mailto:mariana@nordsync.se" class="nord-accent-text font-medium mt-4 block text-sm hover:underline">mariana@nordsync.se</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="team-card expandable-card" onclick="toggleTeamCard(this)">
-                             <div class="team-card-content">
-                                <i class="ph-code team-member-icon"></i>
-                                <h4 class="text-xl font-semibold text-heading-dark-bg mb-1">William Nygårds</h4>
-                                <p class="text-white font-semibold text-sm mb-2">Teknisk Arkitektur & Utveckling</p>
-                                <p class="text-content-dark-bg">William är arkitekten bakom NordSyncs tekniska ryggrad. Han ansvarar för att bygga den robusta och skalbara infrastruktur som våra AI-lösningar körs på.</p>
-                                <div class="team-card-details">
-                                     <hr class="border-t border-sky-700/50 my-4">
-                                     <p class="text-content-dark-bg mt-2">Han omvandlar strategiska visioner till säker och effektiv kod, och säkerställer att varje system vi levererar är pålitligt, presterar på topp och är redo att växa med våra kunders framgång.</p>
-                                    <a href="mailto:william@nordsync.se" class="nord-accent-text font-medium mt-4 block text-sm hover:underline">william@nordsync.se</a>
                                 </div>
                             </div>
                         </div>
@@ -1076,11 +1047,11 @@
              <div class="section-content-wrapper page-content-padding">
                 <div class="solution-reactor-container"> 
                     <!-- Behållare för Fas 1-partiklar (Canvas) -->
-                    <canvas id="particle-flow-canvas" class="absolute top-0 left-0 w-full h-full pointer-events-none z-10"></canvas>
+                    <canvas id="particle-flow-canvas" class="absolute top-0 left-0 w-full h-full pointer-events: none; z-index: 1;"></canvas>
                     <!-- Behållare för Fas 2-kopplingar (SVG) -->
                     <svg id="reactor-circuit-svg" 
                          preserveAspectRatio="xMidYMid meet"
-                         class="absolute top-0 left-0 w-full h-full pointer-events-none z-20">
+                         class="absolute top-0 left-0 w-full h-full pointer-events: none; z-index: 2;">
                          <defs>
                             <linearGradient id="pulse-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
                                 <stop offset="0%" stop-color="var(--nord-sync-cyan)" stop-opacity="0" />
@@ -1189,8 +1160,8 @@
             
                         <div class="reactor-phase output-phase mt-12" id="outputPhase">
                             <div class="reactor-phase-content">
-                                <h3 class="text-2xl font-semibold text-center text-nord-sync-light-accent mb-8">Fas 3: Output – Transformerande Lösningar</h3>
-                                <p class="text-center text-content-dark-bg max-w-2xl mx-auto mb-12 text-md">Resultatet: Kraftfulla AI-lösningar som levererar mätbar ROI och verklig affärsnytta, redo att integreras i er verksamhet.</p>
+                                <h3 class="text-2xl font-semibold text-center text-nord-sync-light-accent mb-8">Fas 3: Output – Transformerande System</h3>
+                                <p class="text-center text-content-dark-bg max-w-2xl mx-auto mb-12 text-md">Resultatet: Kraftfulla AI-ekosystem som levererar mätbar ROI och verklig affärsnytta, redo att integreras i er verksamhet.</p>
                                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6"> 
                                     <div class="content-card-dark example-solution-card" id="solutionCard1">
                                         <div class="service-pillar-icon-container">
@@ -1248,14 +1219,14 @@
                                              <i class="ph ph-arrows-out-cardinal"></i> 
                                         </div>
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Skalbara AI-System</h4>
-                                        <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Våra AI-lösningar är byggda för att växa med er, och säkerställer att er kapacitet kan skalas upp dynamiskt för att möta nya krav.</p>
+                                        <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Våra AI-system är byggda för att växa med er, och säkerställer att er kapacitet kan skalas upp dynamiskt för att möta nya krav.</p>
                                          <div class="mt-4">
                                             <button onclick="toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
                                            <ul>
                                                <li>Ett system som initialt hanterar leadskvalificering kan senare utökas med moduler för automatiserad onboarding och proaktiv kundvård, utan att den ursprungliga arkitekturen behöver bytas ut.</li>
-                                               <li>En lösning byggd för en nationell marknad kan enkelt konfigureras och skalas upp för att hantera data och processer från flera internationella dotterbolag, vilket säkerställer en enhetlig och effektiv drift globalt.</li>
+                                               <li>Ett system byggt för en nationell marknad kan enkelt konfigureras och skalas upp för att hantera data och processer från flera internationella dotterbolag, vilket säkerställer en enhetlig och effektiv drift globalt.</li>
                                            </ul>
                                         </div>
                                     </div>
@@ -1380,7 +1351,7 @@
             </div>
         </section>
 
-        <section id="karriar" class="space-background-section py-20 lg:py-28" style="display: none;">
+        <section id="karriar" class="space-background-section page-content-padding" style="display: none;">
             <div class="stars-background opacity-60" aria-hidden="true"></div>
             <div class="section-content-wrapper text-center">
                  <div class="flex justify-center space-x-2 mb-6">
@@ -1389,16 +1360,18 @@
                     <i class="ph-star-four nordsync-logo-star text-3xl" style="animation-delay: 0.5s; color: var(--nord-sync-light-accent);"></i>
                 </div>
                 <h2 class="section-title text-4xl md:text-5xl mb-6">Gör din del i <span class="section-title-accent relative">AI-revolutionen</span></h2>
-                <p class="intro-text max-w-3xl mx-auto text-center">
-                    NordSync skapar skalbara AI-system som levererar mätbara affärsresultat, inte bara automatiserar uppgifter. Vi söker mångsidiga byggare som kan transformera hur företag fungerar.
-                </p>
-                <p class="detail-text max-w-2xl mx-auto text-center">
-                    Vårt tillvägagångssätt kombinerar teknisk expertis med affärsstrategi för att bygga system som fungerar över olika nischer och förvandlar komplexa arbetsflöden till skalbara lösningar.
-                </p>
-                <p class="detail-text max-w-2xl mx-auto mb-10 text-center">
-                    Perfekt för entreprenöriella tänkare som vill bygga lösningar med bestående inverkan.
-                </p>
-                <div class="mb-10">
+                <div class="max-w-3xl mx-auto">
+                    <p class="intro-text text-center">
+                        NordSync skapar skalbara AI-system som levererar mätbara affärsresultat, inte bara automatiserar uppgifter. Vi söker mångsidiga byggare som kan transformera hur företag fungerar.
+                    </p>
+                    <p class="detail-text mt-4 text-center">
+                        Vårt tillvägagångssätt kombinerar teknisk expertis med affärsstrategi för att bygga system som fungerar över olika nischer och förvandlar komplexa arbetsflöden till skalbara ekosystem.
+                    </p>
+                    <p class="detail-text mt-4 text-center">
+                        Perfekt för entreprenöriella tänkare som vill bygga system med bestående inverkan.
+                    </p>
+                </div>
+                <div class="mt-10 mb-10">
                     <a href="#" onclick="showPage('vilka-ar-vi'); return false;" class="btn-secondary-on-dark px-10 py-4 text-lg inline-flex items-center">
                         Starta Din Resa <i class="ph-paper-plane-tilt ml-2"></i>
                     </a>
@@ -1415,19 +1388,19 @@
             </div>
         </section>
         
-        <section id="vilka-ar-vi" class="space-background-section py-20 lg:py-28" style="display: none;">
+        <section id="vilka-ar-vi" class="space-background-section page-content-padding" style="display: none;">
             <div class="stars-background opacity-60" aria-hidden="true"></div>
-            <div class="section-content-wrapper text-center page-content-padding" id="vilka-ar-vi-content">
+            <div class="section-content-wrapper text-center" id="vilka-ar-vi-content">
                 <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">Vilka är vi?</h2>
                 <div class="max-w-2xl mx-auto text-left text-sky-100">
                      <p class="text-lg mb-6">
-                        Vi är <strong>arkitekter av intelligenta ekosystem</strong>. Vårt fokus är att bygga AI-drivna lösningar som <strong>sömlöst integreras och skapar ett mervärde som överstiger summan av dess delar</strong> – inom försäljning, marknadsföring och verksamhetsdrift. Vår vision är "Framtiden Förenklad", där avancerad teknologi blir ett kraftfullt och tillgängligt verktyg för företag som vill ligga i framkant.
+                        Vi är <strong>arkitekter av intelligenta ekosystem</strong>. Vårt fokus är att bygga AI-drivna system som är designade att samverka och förstärka varandra. Vår vision är "Framtiden Förenklad", där avancerad teknologi blir ett kraftfullt och tillgängligt verktyg för företag som vill ligga i framkant.
                     </p>
                     <p class="text-lg mb-6">
                         Vi söker dig som är passionerad, driven och vill vara med och forma denna framtid. Hos oss får du möjlighet att arbeta med banbrytande projekt, utveckla din expertis inom tillämpad AI och bidra till verklig förändring. Vi värdesätter en kultur av innovation, samarbete och kontinuerligt lärande.
                     </p>
                      <p class="text-lg mb-10">
-                        Är du redo att ansluta dig till ett team som drivs av "Nordisk Atom-Optimism" och en vilja att göra skillnad?
+                        Är du redo att ansluta dig till ett team som drivs av "Nordisk Atom-Optimism"?
                     </p>
                 </div>
 
@@ -1498,13 +1471,13 @@
             </div>
         </section>
 
-        <section id="boka-samtal-skraddarsydd" class="space-background-section py-20 lg:py-28" style="display: none;">
+        <section id="boka-samtal-skraddarsydd" class="space-background-section page-content-padding" style="display: none;">
             <div class="stars-background opacity-50" aria-hidden="true"></div>
-            <div class="section-content-wrapper page-content-padding text-center">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">Dialog för Skräddarsydd AI-Lösning</h2>
+            <div class="section-content-wrapper text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">Dialog för Skräddarsytt AI-System</h2>
                 <div id="formSkraddarsyddContainer" class="content-card-transparent p-8 md:p-12 mt-10 max-w-xl mx-auto text-left">
                     <form id="formSkraddarsydd">
-                        <input type="hidden" name="_subject" value="Ny förfrågan: Skräddarsydd AI-Lösning från nordsync.se">
+                        <input type="hidden" name="_subject" value="Ny förfrågan: Skräddarsytt AI-System från nordsync.se">
                         <div class="form-step active" data-step="1">
                             <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 1/4: Dina Uppgifter</h4>
                             <div><label for="skraddarsydd-name" class="form-label">Ditt Namn</label><input type="text" name="name" id="skraddarsydd-name" required class="form-input"></div>
@@ -1523,7 +1496,7 @@
                         <div class="form-step" data-step="3">
                             <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 3/4: Era AI-Ambitioner</h4>
                             <div><label for="skraddarsydd-challenges" class="form-label">Vilka specifika problem eller processer hoppas ni att AI kan förbättra?</label><textarea name="challenges" id="skraddarsydd-challenges" rows="3" class="form-textarea"></textarea></div>
-                            <div><label for="skraddarsydd-integration" class="form-label">Har ni några befintliga system som en AI-lösning skulle behöva integreras med?</label><textarea name="integration-needs" id="skraddarsydd-integration" rows="2" class="form-textarea"></textarea></div>
+                            <div><label for="skraddarsydd-integration" class="form-label">Har ni några befintliga system som ett AI-system skulle behöva integreras med?</label><textarea name="integration-needs" id="skraddarsydd-integration" rows="2" class="form-textarea"></textarea></div>
                             <div>
                                 <label for="skraddarsydd-ai-knowledge" class="form-label">Nuvarande AI-mognadsgrad i er organisation?</label>
                                 <select id="skraddarsydd-ai-knowledge" name="ai-knowledge" class="form-select">
@@ -1531,7 +1504,7 @@
                                     <option value="grundlaggande">Grundläggande Förståelse (Vi känner till grunderna, få experiment)</option>
                                     <option value="aktiv">Aktiv Användning (Vi använder vissa AI-verktyg/processer)</option>
                                     <option value="avancerad">Avancerad / Strategisk (AI är en integrerad del av vår strategi)</option>
-                                    <option value="expert">Expert / Ledande (Vi utvecklar egna AI-lösningar/är ledande)</option>
+                                    <option value="expert">Expert / Ledande (Vi utvecklar egna AI-system/är ledande)</option>
                                 </select>
                             </div>
                             <div class="flex justify-between mt-6"><button type="button" onclick="prevCustomFormStep('formSkraddarsydd', 3)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="nextCustomFormStep('formSkraddarsydd', 3)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
@@ -1550,9 +1523,9 @@
             </div>
         </section>
 
-        <section id="boka-samtal-portal" class="space-background-section py-20 lg:py-28" style="display: none;">
+        <section id="boka-samtal-portal" class="space-background-section page-content-padding" style="display: none;">
             <div class="stars-background opacity-50" aria-hidden="true"></div>
-            <div class="section-content-wrapper page-content-padding text-center">
+            <div class="section-content-wrapper text-center">
                 <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-8">Dialog för AI-Portal</h2>
                  <div id="formAiPortalContainer" class="content-card-transparent p-8 md:p-12 mt-10 max-w-xl mx-auto text-left">
                     <form id="formAiPortal">
@@ -1595,18 +1568,15 @@
         </section>
         </main>
 
-    <footer class="relative">
-        <div class="stars-background opacity-40" aria-hidden="true"></div>
-        <div class="section-content-wrapper py-8 relative z-10">
-            <div class="grid md:grid-cols-3 gap-8 text-sm">
+    <footer class="relative bg-nord-sync-deep-space-blue">
+        <div class="stars-background opacity-20" aria-hidden="true"></div>
+        <div class="section-content-wrapper py-6 relative z-10">
+            <div class="grid md:grid-cols-3 gap-6 text-sm">
                 <div class="md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-                    <a href="#" onclick="showPage('hero'); return false;" class="flex items-center space-x-1.5 group text-lg mb-3">
-                        <img src="https://raw.githubusercontent.com/NordSync/Logga-minus-text/main/Final%20logo%20no%20text.svg" alt="NordSync Logotyp" class="h-20 md:h-28">
+                    <a href="#" onclick="showPage('hero'); return false;" class="inline-block mb-2">
+                        <img src="https://raw.githubusercontent.com/NordSync/Logga-minus-text/main/Final%20logo%20no%20text.svg" alt="NordSync Logotyp" class="h-16">
                     </a>
-                    <p class="text-xs text-content-dark-bg">AI-lösningar med mänsklig insikt och teknologisk precision.</p>
-                    <p class="text-xs text-content-dark-bg mt-2">Rörläggarvägen 39, Bromma</p>
-                    <a href="mailto:kontakt@nordsync.se" class="footer-link text-xs">kontakt@nordsync.se</a>
-                    <p class="text-xs text-content-dark-bg">+46 (0)70 529 25 83</p>
+                    <p class="text-xs text-content-dark-bg">AI-drivna system med mänsklig insikt och teknologisk precision.</p>
                 </div>
                 
                 <div class="md:col-span-1 text-center md:text-left">
@@ -1628,9 +1598,8 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-8 border-t border-sky-700/50 pt-6 text-center">
+            <div class="mt-6 border-t border-sky-700/50 pt-4 text-center">
                 <p class="text-xs text-content-dark-bg">© <span id="currentYear"></span> NordSync AB. Alla rättigheter förbehållna.</p>
-                <p class="text-xs text-sky-400 mt-1">Framtiden Förenklad. Byggd med Nordisk Atom-Optimism.</p>
             </div>
         </div>
     </footer>
@@ -1741,7 +1710,7 @@
 
             // Initiera första sidan
             showPage('hero');
-
+            
             // --- AI-Reaktor Animationer med SVG och Canvas (Hybrid-metod) ---
             function setupFinalHybridAnimations() {
                 const reactorSection = document.getElementById('ai-reaktor');
