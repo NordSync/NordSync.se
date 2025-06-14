@@ -85,6 +85,23 @@
                  min-height: calc(100vh - 116px); 
             }
          }
+         
+        #karriar .section-content-wrapper {
+            max-width: 800px;
+        }
+        #karriar .intro-text, #karriar .detail-text {
+            font-size: 1.125rem;
+            line-height: 1.7;
+        }
+        @media (min-width: 1024px) {
+            #karriar .section-title {
+                font-size: 3.75rem;
+            }
+            #karriar .intro-text, #karriar .detail-text {
+                font-size: 1.25rem;
+            }
+        }
+
 
         .stars-background {
             position: absolute;
@@ -1354,25 +1371,25 @@
         <section id="karriar" class="space-background-section page-content-padding" style="display: none;">
             <div class="stars-background opacity-60" aria-hidden="true"></div>
             <div class="section-content-wrapper text-center">
-                 <div class="flex justify-center space-x-2 mb-6">
+                 <div class="flex justify-center space-x-2 mb-8 md:mb-10">
                     <i class="ph-star-four nordsync-logo-star text-3xl" style="animation-delay: 0.1s; color: var(--nord-sync-light-accent);"></i>
                     <i class="ph-star-four nordsync-logo-star text-4xl" style="animation-delay: 0.3s; color: var(--nord-sync-light-accent);"></i>
                     <i class="ph-star-four nordsync-logo-star text-3xl" style="animation-delay: 0.5s; color: var(--nord-sync-light-accent);"></i>
                 </div>
-                <h2 class="section-title text-4xl md:text-5xl mb-6">Gör din del i <span class="section-title-accent relative">AI-revolutionen</span></h2>
-                <div class="max-w-3xl mx-auto">
-                    <p class="intro-text text-center">
+                <h2 class="section-title text-4xl md:text-5xl lg:text-6xl mb-8 md:mb-12">Gör din del i <span class="section-title-accent relative">AI-revolutionen</span></h2>
+                <div class="max-w-3xl lg:max-w-4xl mx-auto">
+                    <p class="text-lg md:text-xl leading-relaxed">
                         NordSync skapar skalbara AI-system som levererar mätbara affärsresultat, inte bara automatiserar uppgifter. Vi söker mångsidiga byggare som kan transformera hur företag fungerar.
                     </p>
-                    <p class="detail-text mt-4 text-center">
+                    <p class="text-lg md:text-xl leading-relaxed mt-6">
                         Vårt tillvägagångssätt kombinerar teknisk expertis med affärsstrategi för att bygga system som fungerar över olika nischer och förvandlar komplexa arbetsflöden till skalbara ekosystem.
                     </p>
-                    <p class="detail-text mt-4 text-center">
+                    <p class="text-lg md:text-xl leading-relaxed mt-6">
                         Perfekt för entreprenöriella tänkare som vill bygga system med bestående inverkan.
                     </p>
                 </div>
-                <div class="mt-10 mb-10">
-                    <a href="#" onclick="showPage('vilka-ar-vi'); return false;" class="btn-secondary-on-dark px-10 py-4 text-lg inline-flex items-center">
+                <div class="mt-12 md:mt-16 mb-10">
+                    <a href="#" onclick="showPage('vilka-ar-vi'); return false;" class="btn-secondary-on-dark px-10 py-4 text-lg lg:text-xl lg:px-12 lg:py-5 inline-flex items-center">
                         Starta Din Resa <i class="ph-paper-plane-tilt ml-2"></i>
                     </a>
                     <p class="text-xs text-sky-300 mt-2 flex items-center justify-center">
@@ -1605,17 +1622,97 @@
     </footer>
     
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // --- Globala Variabler ---
+        // --- GLOBAL FUNCTIONS CALLED FROM HTML ---
+        function showPage(pageIdToShow) {
+            document.querySelectorAll('main > section').forEach(section => section.style.display = 'none');
+
+            if (pageIdToShow === 'hero') {
+                ['hero', 'home-diagram-section', 'home-contact-section'].forEach(id => {
+                    const section = document.getElementById(id);
+                    if (section) section.style.display = 'flex';
+                });
+            } else {
+                const section = document.getElementById(pageIdToShow);
+                if(section) {
+                    if (section.classList.contains('space-background-section')) {
+                        section.style.display = 'flex';
+                    } else {
+                        section.style.display = 'block';
+                    }
+                }
+            }
+            
+            updateActiveLink(pageIdToShow);
+            window.scrollTo(0, 0); 
+            closeMobileMenu();
+        };
+
+        function handleBokaMoteClick(event) {
+            event.preventDefault();
+            showPage('hero');
+            setTimeout(() => {
+                const contactSection = document.getElementById('home-contact-anchor');
+                if(contactSection) {
+                        contactSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+            closeMobileMenu();
+        };
+
+        function toggleTeamCard(cardElement) { cardElement.classList.toggle('expanded'); }
+        function toggleReactorModuleDetails(moduleElement) {
+            const isActive = moduleElement.classList.contains('active');
+            document.querySelectorAll('.reactor-module').forEach(m => m.classList.remove('active'));
+            if(!isActive) {
+                moduleElement.classList.add('active');
+            }
+        }
+        function toggleSolutionExampleDetails(button) { button.closest('.example-solution-card').classList.toggle('active'); }
+        function togglePortalStepDetails(stepElement) { stepElement.classList.toggle('active'); }
+
+        function nextCustomFormStep(formId, currentStep) {
+            document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`#${formId} .form-step[data-step="${currentStep + 1}"]`).classList.add('active');
+        };
+        function prevCustomFormStep(formId, currentStep) {
+            document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
+            document.querySelector(`#${formId} .form-step[data-step="${currentStep - 1}"]`).classList.add('active');
+        };
+        
+        function closeMobileMenu() {
             const mobileMenu = document.getElementById('mobile-menu');
             const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
-            const allMainSections = document.querySelectorAll('main > section');
-            const homePageSections = ['hero', 'home-diagram-section', 'home-contact-section']; 
-            const navLinks = document.querySelectorAll('header nav a.nav-link');
-            const mobileNavLinks = document.querySelectorAll('#mobile-menu a');
+            if(mobileMenu && mobileMenuTrigger) {
+                mobileMenu.classList.add('hidden');
+                mobileMenuTrigger.classList.remove('active');
+                mobileMenuTrigger.style.animation = '';
+            }
+        };
+
+        function updateActiveLink(currentPageId) {
+            const pageMap = {
+                'vilka-ar-vi': 'om-oss', 
+                'boka-samtal-skraddarsydd': 'ai-reaktor', 
+                'boka-samtal-portal': 'ai-portal'
+            };
+            const activePage = pageMap[currentPageId] || currentPageId;
+
+            document.querySelectorAll('header nav a.nav-link').forEach(link => link.classList.toggle('active', link.dataset.page === activePage));
+            document.querySelectorAll('#mobile-menu a').forEach(link => {
+                const isActive = link.dataset.page === activePage;
+                link.classList.toggle('bg-sky-700/50', isActive);
+                link.classList.toggle('nord-accent-text', isActive);
+                link.classList.toggle('font-semibold', isActive);
+            });
+        }
+
+
+        // --- DOM-DEPENDENT INITIALIZATION ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
             
-            // --- Hjälpfunktioner ---
             function toggleMobileMenu() {
+                const mobileMenu = document.getElementById('mobile-menu');
                 mobileMenu.classList.toggle('hidden');
                 mobileMenuTrigger.classList.toggle('active');
                 if (mobileMenuTrigger.classList.contains('active')) {
@@ -1624,24 +1721,6 @@
                     mobileMenuTrigger.style.animation = '';
                 }
             }
-            window.closeMobileMenu = () => {
-                if(mobileMenu && mobileMenuTrigger) {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuTrigger.classList.remove('active');
-                    mobileMenuTrigger.style.animation = '';
-                }
-            };
-             window.handleBokaMoteClick = (event) => {
-                event.preventDefault();
-                showPage('hero');
-                setTimeout(() => {
-                    const contactSection = document.getElementById('home-contact-anchor');
-                    if(contactSection) {
-                         contactSection.scrollIntoView({ behavior: 'smooth' });
-                    }
-                }, 100);
-                 closeMobileMenu();
-            };
 
             if (mobileMenuTrigger) {
                 mobileMenuTrigger.addEventListener('click', toggleMobileMenu);
@@ -1662,51 +1741,6 @@
                 }
             }
             document.querySelectorAll('.stars-background').forEach(bg => createStars(bg));
-
-            // --- SPA-navigering ---
-            window.showPage = function(pageIdToShow) {
-                allMainSections.forEach(section => section.style.display = 'none');
-
-                if (pageIdToShow === 'hero') {
-                    for (let i = 0; i < homePageSections.length; i++) {
-                        const sectionId = homePageSections[i];
-                        const section = document.getElementById(sectionId);
-                        if (section) {
-                            section.style.display = 'flex';
-                        }
-                    }
-                } else {
-                    const section = document.getElementById(pageIdToShow);
-                    if(section) {
-                        if (section.classList.contains('space-background-section')) {
-                           section.style.display = 'flex';
-                        } else {
-                           section.style.display = 'block';
-                        }
-                    }
-                }
-                
-                updateActiveLink(pageIdToShow);
-                window.scrollTo(0, 0); 
-                closeMobileMenu();
-            };
-            
-            function updateActiveLink(currentPageId) {
-                 const pageMap = {
-                    'vilka-ar-vi': 'om-oss', 
-                    'boka-samtal-skraddarsydd': 'ai-reaktor', 
-                    'boka-samtal-portal': 'ai-portal'
-                };
-                const activePage = pageMap[currentPageId] || currentPageId;
-
-                navLinks.forEach(link => link.classList.toggle('active', link.dataset.page === activePage));
-                mobileNavLinks.forEach(link => {
-                    const isActive = link.dataset.page === activePage;
-                    link.classList.toggle('bg-sky-700/50', isActive);
-                    link.classList.toggle('nord-accent-text', isActive);
-                    link.classList.toggle('font-semibold', isActive);
-                });
-            }
 
             // Initiera första sidan
             showPage('hero');
@@ -1819,19 +1853,22 @@
                 
                 function emitIntakeParticles() {
                     const intakeContainer = document.getElementById('intakeItemsContainer');
+                    const intakeItems = intakeContainer.querySelectorAll('.reactor-input-item');
                     const container = document.querySelector('.solution-reactor-container');
                     if (!intakeContainer || !container || moduleTargets.length === 0) return;
                     
                     const containerRect = container.getBoundingClientRect();
-                    const intakeRect = intakeContainer.getBoundingClientRect();
-                    
-                    const count = 12 + Math.floor(Math.random() * 8);
-                    for (let i = 0; i < count; i++) {
-                        const startX = (intakeRect.left - containerRect.left) + (Math.random() * intakeRect.width);
-                        const startY = (intakeRect.top - containerRect.top) + (Math.random() * intakeRect.height);
-                        const target = moduleTargets[Math.floor(Math.random() * moduleTargets.length)];
-                        intakeParticles.push(new IntakeParticle(startX, startY, target));
-                    }
+
+                    intakeItems.forEach(item => {
+                        const itemRect = item.getBoundingClientRect();
+                        const count = 3 + Math.floor(Math.random() * 2); 
+                        for (let i = 0; i < count; i++) {
+                            const startX = (itemRect.left - containerRect.left) + (Math.random() * itemRect.width);
+                            const startY = (itemRect.top - containerRect.top) + (Math.random() * itemRect.height);
+                            const target = moduleTargets[Math.floor(Math.random() * moduleTargets.length)];
+                            intakeParticles.push(new IntakeParticle(startX, startY, target));
+                        }
+                    });
                 }
                 
                 function animateCanvas(timestamp) {
@@ -1927,16 +1964,6 @@
             }
 
 
-            // --- Flerstegsformulär ---
-            window.nextCustomFormStep = (formId, currentStep) => {
-                document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
-                document.querySelector(`#${formId} .form-step[data-step="${currentStep + 1}"]`).classList.add('active');
-            };
-            window.prevCustomFormStep = (formId, currentStep) => {
-                document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
-                document.querySelector(`#${formId} .form-step[data-step="${currentStep - 1}"]`).classList.add('active');
-            };
-
             // --- Robust Formulärhantering ---
             function setupForm(formId, successId, errorId, formspreeId) {
                 const form = document.getElementById(formId);
@@ -1979,18 +2006,6 @@
             setupForm('jobApplicationForm', 'jobApplicationFormSuccessMessage', 'jobApplicationFormErrorMessage', 'xdkzaazw');
             setupForm('newsletterForm', 'newsletterSuccessMessage', 'newsletterErrorMessage', 'mjkrggre');
             
-            // --- Övrig Interaktivitet ---
-            window.toggleTeamCard = (cardElement) => cardElement.classList.toggle('expanded');
-            window.toggleReactorModuleDetails = (moduleElement) => {
-                 const isActive = moduleElement.classList.contains('active');
-                 document.querySelectorAll('.reactor-module').forEach(m => m.classList.remove('active'));
-                 if(!isActive) {
-                     moduleElement.classList.add('active');
-                 }
-            }
-            window.toggleSolutionExampleDetails = (button) => button.closest('.example-solution-card').classList.toggle('active');
-            window.togglePortalStepDetails = (stepElement) => stepElement.classList.toggle('active');
-
             // Sätt aktuellt år i footern
             document.getElementById('currentYear').textContent = new Date().getFullYear();
         });
