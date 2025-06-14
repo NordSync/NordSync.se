@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
@@ -827,7 +827,7 @@
     <header id="header" class="fixed w-full z-50 top-0 left-0 right-0">
         <div class="container mx-auto px-4 md:px-6 py-4"> 
             <div class="flex items-center justify-between">
-                <a href="#" onclick="showPage('hero'); return false;" class="hidden md:block flex-shrink-0">
+                <a href="#" onclick="window.nord.showPage('hero'); return false;" class="hidden md:block flex-shrink-0">
                     <img src="https://raw.githubusercontent.com/NordSync/Logga-minus-text/main/Final%20logo%20no%20text.svg" alt="NordSync Logotyp" class="h-24 transition-all duration-300">
                 </a>
                 <button id="mobile-menu-trigger" class="md:hidden absolute left-4 top-1/2 -translate-y-1/2 z-50">
@@ -835,28 +835,28 @@
                 </button>
 
                 <nav class="hidden md:flex flex-grow justify-center space-x-5 items-center">
-                    <a href="#" onclick="showPage('hero'); return false;" data-page="hero" class="nav-link transition-colors font-medium">Hem</a>
-                    <a href="#" onclick="showPage('om-oss'); return false;" data-page="om-oss" class="nav-link transition-colors font-medium">Om Oss</a>
-                    <a href="#" onclick="showPage('ai-reaktor'); return false;" data-page="ai-reaktor" class="nav-link transition-colors font-medium">AI-Reaktor</a>
-                    <a href="#" onclick="showPage('ai-portal'); return false;" data-page="ai-portal" class="nav-link transition-colors font-medium">AI-Portal</a>
-                    <a href="#" onclick="showPage('karriar'); return false;" data-page="karriar" class="nav-link transition-colors font-medium">Gör din del</a>
+                    <a href="#" onclick="window.nord.showPage('hero'); return false;" data-page="hero" class="nav-link transition-colors font-medium">Hem</a>
+                    <a href="#" onclick="window.nord.showPage('om-oss'); return false;" data-page="om-oss" class="nav-link transition-colors font-medium">Om Oss</a>
+                    <a href="#" onclick="window.nord.showPage('ai-reaktor'); return false;" data-page="ai-reaktor" class="nav-link transition-colors font-medium">AI-Reaktor</a>
+                    <a href="#" onclick="window.nord.showPage('ai-portal'); return false;" data-page="ai-portal" class="nav-link transition-colors font-medium">AI-Portal</a>
+                    <a href="#" onclick="window.nord.showPage('karriar'); return false;" data-page="karriar" class="nav-link transition-colors font-medium">Gör din del</a>
                 </nav>
                 
                 <div class="hidden md:block flex-shrink-0"> 
-                    <a href="#" onclick="handleBokaMoteClick(event)" class="btn-primary text-sm">Boka Möte</a>
+                    <a href="#" onclick="window.nord.handleBokaMoteClick(event)" class="btn-primary text-sm">Boka Möte</a>
                 </div>
                  <div class="md:hidden w-16 h-16"></div> 
 
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-nord-sync-deep-space-blue/95 backdrop-blur-sm shadow-lg rounded-b-xl absolute w-full left-0 top-full">
-            <a href="#" onclick="showPage('hero'); return false;" data-page="hero" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">Hem</a>
-            <a href="#" onclick="showPage('om-oss'); return false;" data-page="om-oss" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">Om Oss</a>
-            <a href="#" onclick="showPage('ai-reaktor'); return false;" data-page="ai-reaktor" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">AI-Reaktor</a>
-            <a href="#" onclick="showPage('ai-portal'); return false;" data-page="ai-portal" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">AI-Portal</a>
-            <a href="#" onclick="showPage('karriar'); return false;" data-page="karriar" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">Gör din del</a>
+            <a href="#" onclick="window.nord.showPage('hero'); return false;" data-page="hero" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">Hem</a>
+            <a href="#" onclick="window.nord.showPage('om-oss'); return false;" data-page="om-oss" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">Om Oss</a>
+            <a href="#" onclick="window.nord.showPage('ai-reaktor'); return false;" data-page="ai-reaktor" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">AI-Reaktor</a>
+            <a href="#" onclick="window.nord.showPage('ai-portal'); return false;" data-page="ai-portal" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">AI-Portal</a>
+            <a href="#" onclick="window.nord.showPage('karriar'); return false;" data-page="karriar" class="block px-6 py-4 text-sky-100 hover:bg-sky-700/50 hover:nord-accent-text transition-colors">Gör din del</a>
             <div class="px-6 py-4">
-                <a href="#" onclick="handleBokaMoteClick(event)" data-page="kontakt" class="btn-primary w-full">Boka Möte</a>
+                <a href="#" onclick="window.nord.handleBokaMoteClick(event)" data-page="kontakt" class="btn-primary w-full">Boka Möte</a>
             </div>
         </div>
     </header>
@@ -866,7 +866,7 @@
             <div class="stars-background opacity-50" aria-hidden="true"></div>
             <div class="section-content-wrapper">
                 <div class="flex flex-col items-center gap-y-8">
-                    <div id="hero-logo-wrapper" onclick="showPage('om-oss');">
+                    <div id="hero-logo-wrapper" onclick="window.nord.showPage('om-oss');">
                         <img src="https://raw.githubusercontent.com/NordSync/Logga-text/main/Logo%20final.svg" alt="NordSync Logotyp med text">
                     </div>
                     
@@ -879,8 +879,8 @@
                     </p>
 
                     <div class="space-y-4 md:space-y-0 md:space-x-6">
-                        <a href="#" onclick="showPage('ai-reaktor'); return false;" class="btn-primary inline-block w-full md:w-auto">Upptäck Vår AI-Reaktor</a>
-                        <a href="#" onclick="showPage('ai-portal'); return false;" class="btn-secondary-on-dark inline-block w-full md:w-auto">Utforska AI-Portalen</a>
+                        <a href="#" onclick="window.nord.showPage('ai-reaktor'); return false;" class="btn-primary inline-block w-full md:w-auto">Upptäck Vår AI-Reaktor</a>
+                        <a href="#" onclick="window.nord.showPage('ai-portal'); return false;" class="btn-secondary-on-dark inline-block w-full md:w-auto">Utforska AI-Portalen</a>
                     </div>
                 </div>
             </div>
@@ -901,7 +901,7 @@
                         <div class="venn-circle venn-circle-2" id="vennCircle2">
                              <span class="venn-circle-text">AVANCERAD<br>AI-AUTOMATION</span>
                         </div>
-                        <div class="venn-overlap-text" onclick="showPage('ai-reaktor'); return false;" style="cursor:pointer;">ROI</div>
+                        <div class="venn-overlap-text" onclick="window.nord.showPage('ai-reaktor'); return false;" style="cursor:pointer;">ROI</div>
                     </div>
                 </div>
                 <p class="text-center text-content-dark-bg max-w-2xl mx-auto mt-6 text-md" id="vennTargetText">
@@ -928,8 +928,8 @@
                             Vi designar och bygger allt från enskilda, kraftfulla intelligenta agenter som löser specifika problem, till fullt integrerade AI-system som sömlöst kopplar samman era viktigaste processer.
                         </p>
                         <div class="mt-auto">
-                            <button type="button" onclick="showPage('boka-samtal-skraddarsydd'); return false;" class="btn-primary text-sm w-full mb-3">Boka Strategisamtal</button>
-                            <a href="#" onclick="showPage('ai-reaktor'); return false;" class="btn-service-cta w-full">Läs Mer om AI-Reaktorn</a>
+                            <button type="button" onclick="window.nord.showPage('boka-samtal-skraddarsydd'); return false;" class="btn-primary text-sm w-full mb-3">Boka Strategisamtal</button>
+                            <a href="#" onclick="window.nord.showPage('ai-reaktor'); return false;" class="btn-service-cta w-full">Läs Mer om AI-Reaktorn</a>
                         </div>
                     </div>
                     <div class="content-card-dark cta-card-transparent items-stretch text-left p-8 rounded-xl"> 
@@ -941,8 +941,8 @@
                             Kickstarta er AI-resa med vår 3-timmars strategisession. Få en skräddarsydd handlingsplan och de insikter ni behöver för att framgångsrikt implementera AI i er verksamhet.
                         </p>
                         <div class="mt-auto">
-                            <button type="button" onclick="showPage('boka-samtal-portal'); return false;" class="btn-primary text-sm w-full mb-3">Boka Portal-dialog</button>
-                            <a href="#" onclick="showPage('ai-portal'); return false;" class="btn-service-cta w-full">Läs mer om AI-Portalen</a>
+                            <button type="button" onclick="window.nord.showPage('boka-samtal-portal'); return false;" class="btn-primary text-sm w-full mb-3">Boka Portal-dialog</button>
+                            <a href="#" onclick="window.nord.showPage('ai-portal'); return false;" class="btn-service-cta w-full">Läs mer om AI-Portalen</a>
                         </div>
                     </div>
                 </div>
@@ -998,7 +998,7 @@
                 <div class="text-center mb-20 lg:mb-28">
                     <h3 class="section-title text-3xl md:text-4xl mb-12">Vår digitala <span class="section-title-accent relative">ryggrad</span></h3>
                     <div class="team-grid team-members max-w-4xl mx-auto">
-                        <div class="team-card expandable-card" onclick="toggleTeamCard(this)">
+                        <div class="team-card expandable-card" onclick="window.nord.toggleTeamCard(this)">
                             <div class="team-card-content">
                                 <i class="ph-rocket-launch team-member-icon"></i>
                                 <h4 class="text-xl font-semibold text-heading-dark-bg mb-1">Gustav Hemmingsson</h4>
@@ -1011,7 +1011,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="team-card expandable-card" onclick="toggleTeamCard(this)">
+                        <div class="team-card expandable-card" onclick="window.nord.toggleTeamCard(this)">
                             <div class="team-card-content">
                                 <i class="ph-atom team-member-icon"></i>
                                 <h4 class="text-xl font-semibold text-heading-dark-bg mb-1">Mariana Malihniolzakerani</h4>
@@ -1030,7 +1030,7 @@
                 <div class="text-center">
                     <h3 class="section-title text-3xl md:text-4xl mb-12">Våra <span class="section-title-accent relative">Strategiska Ledstjärnor</span></h3>
                     <div class="team-grid advisors max-w-4xl mx-auto">
-                        <div class="team-card expandable-card" onclick="toggleTeamCard(this)">
+                        <div class="team-card expandable-card" onclick="window.nord.toggleTeamCard(this)">
                             <div class="team-card-content">
                                 <i class="ph-compass team-member-icon"></i>
                                 <h4 class="text-xl font-semibold text-heading-dark-bg mb-2">Molle Alubeid</h4>
@@ -1042,7 +1042,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="team-card expandable-card" onclick="toggleTeamCard(this)">
+                        <div class="team-card expandable-card" onclick="window.nord.toggleTeamCard(this)">
                             <div class="team-card-content">
                                 <i class="ph-rocket team-member-icon"></i> 
                                 <h4 class="text-xl font-semibold text-heading-dark-bg mb-2">Ian I.P. Arden</h4>
@@ -1063,9 +1063,7 @@
         <section id="ai-reaktor" class="space-background-section" style="display: none;">
              <div class="section-content-wrapper page-content-padding">
                 <div class="solution-reactor-container"> 
-                    <!-- Behållare för Fas 1-partiklar (Canvas) -->
                     <canvas id="particle-flow-canvas" class="absolute top-0 left-0 w-full h-full pointer-events: none; z-index: 1;"></canvas>
-                    <!-- Behållare för Fas 2-kopplingar (SVG) -->
                     <svg id="reactor-circuit-svg" 
                          preserveAspectRatio="xMidYMid meet"
                          class="absolute top-0 left-0 w-full h-full pointer-events: none; z-index: 2;">
@@ -1129,7 +1127,7 @@
                             <div class="reactor-phase-content">
                                 <h3 class="text-2xl font-semibold text-center text-nord-sync-light-accent mb-8">Fas 2: Reaktorkärnan – NordSyncs Process</h3>
                                 <div class="grid md:grid-cols-3 gap-8 lg:gap-10 reactor-modules-grid" id="reactorModulesGrid">
-                                    <div class="reactor-module content-card-dark items-stretch text-left p-6" id="reactorModule1" onclick="toggleReactorModuleDetails(this)">
+                                    <div class="reactor-module content-card-dark items-stretch text-left p-6" id="reactorModule1" onclick="window.nord.toggleReactorModuleDetails(this)">
                                         <div class="flex items-start mb-3">
                                             <div class="service-pillar-icon-container mr-4 flex-shrink-0">
                                                 <i class="ph ph-lightbulb"></i> 
@@ -1143,7 +1141,7 @@
                                             <p>Vi startar med att förstå er verksamhet på djupet. I denna fas identifierar vi era unika utmaningar och outnyttjade AI-potential. Tillsammans skapar vi en konkret och datadriven färdplan som säkerställer att alla AI-initiativ är direkt kopplade till era affärsmål för maximal ROI.</p>
                                         </div>
                                     </div>
-                                    <div class="reactor-module content-card-dark items-stretch text-left p-6" id="reactorModule2" onclick="toggleReactorModuleDetails(this)">
+                                    <div class="reactor-module content-card-dark items-stretch text-left p-6" id="reactorModule2" onclick="window.nord.toggleReactorModuleDetails(this)">
                                         <div class="flex items-start mb-3">
                                              <div class="service-pillar-icon-container mr-4 flex-shrink-0">
                                                 <i class="ph ph-gear-six"></i> 
@@ -1157,7 +1155,7 @@
                                             <p>Från strategi till verklighet. Vårt team av experter bygger och driftsätter skräddarsydda AI-agenter och intelligenta system. Vi fokuserar på robust, säker och skalbar arkitektur för att automatisera, effektivisera och leverera mätbara resultat som sömlöst integreras i er kärnverksamhet.</p>
                                         </div>
                                     </div>
-                                    <div class="reactor-module content-card-dark items-stretch text-left p-6" id="reactorModule3" onclick="toggleReactorModuleDetails(this)">
+                                    <div class="reactor-module content-card-dark items-stretch text-left p-6" id="reactorModule3" onclick="window.nord.toggleReactorModuleDetails(this)">
                                         <div class="flex items-start mb-3">
                                              <div class="service-pillar-icon-container mr-4 flex-shrink-0">
                                                 <i class="ph ph-chart-line-up"></i> 
@@ -1187,7 +1185,7 @@
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Automatiserad Kunddialog</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Effektivisera er kundservice och frigör tid med en intelligent AI-agent som hanterar vanliga frågor och ärenden dygnet runt, med er unika röst.</p>
                                         <div class="mt-4">
-                                            <button onclick="toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
+                                            <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
                                             <ul>
@@ -1204,7 +1202,7 @@
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Dynamisk Dataanalys</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Omvandla komplexa datamängder till omedelbara, värdefulla insikter och automatiserade rapporter för skarpare affärsbeslut.</p>
                                         <div class="mt-4">
-                                            <button onclick="toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
+                                            <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
                                             <ul>
@@ -1221,7 +1219,7 @@
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Intelligent Processoptimering</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Identifiera flaskhalsar och effektivisera era interna arbetsflöden med skräddarsydda AI-system som lär sig och förbättras.</p>
                                          <div class="mt-4">
-                                            <button onclick="toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
+                                            <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
                                             <ul>
@@ -1238,7 +1236,7 @@
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Skalbara AI-System</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Våra AI-system är byggda för att växa med er, och säkerställer att er kapacitet kan skalas upp dynamiskt för att möta nya krav.</p>
                                          <div class="mt-4">
-                                            <button onclick="toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
+                                            <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
                                            <ul>
@@ -1249,7 +1247,7 @@
                                     </div>
                                 </div>
                                  <div class="mt-16 text-center">
-                                    <a href="#" onclick="showPage('boka-samtal-skraddarsydd'); return false;" class="btn-primary inline-block text-lg px-10 py-4">Aktivera Er Tillväxtreaktor</a>
+                                    <a href="#" onclick="window.nord.showPage('boka-samtal-skraddarsydd'); return false;" class="btn-primary inline-block text-lg px-10 py-4">Aktivera Er Tillväxtreaktor</a>
                                 </div>
                             </div>
                         </div>
@@ -1278,7 +1276,7 @@
                                     <p class="text-sm font-semibold uppercase tracking-wider">Er Branschexpertis</p>
                                 </div>
                                 
-                                <div id="portal-handlingsplan" class="venn-overlap-text" onclick="showPage('boka-samtal-portal'); return false;">
+                                <div id="portal-handlingsplan" class="venn-overlap-text" onclick="window.nord.showPage('boka-samtal-portal'); return false;">
                                     AI-Strategi
                                 </div>
 
@@ -1298,7 +1296,7 @@
                         </div>
 
                         <div class="portal-steps-path mt-16">
-                            <div class="portal-step-node" onclick="togglePortalStepDetails(this)">
+                            <div class="portal-step-node" onclick="window.nord.togglePortalStepDetails(this)">
                                 <div class="portal-step-node-icon-container">
                                     <i class="ph ph-puzzle-piece"></i>
                                 </div>
@@ -1310,7 +1308,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="portal-step-node" onclick="togglePortalStepDetails(this)">
+                            <div class="portal-step-node" onclick="window.nord.togglePortalStepDetails(this)">
                                 <div class="portal-step-node-icon-container">
                                     <i class="ph ph-fingerprint-simple"></i>
                                 </div>
@@ -1322,7 +1320,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="portal-step-node" onclick="togglePortalStepDetails(this)">
+                            <div class="portal-step-node" onclick="window.nord.togglePortalStepDetails(this)">
                                  <div class="portal-step-node-icon-container">
                                     <i class="ph ph-brain animated-symbol"></i>
                                 </div>
@@ -1334,7 +1332,7 @@
                                     </div>
                                 </div>
                             </div>
-                             <div class="portal-step-node" onclick="togglePortalStepDetails(this)">
+                             <div class="portal-step-node" onclick="window.nord.togglePortalStepDetails(this)">
                                  <div class="portal-step-node-icon-container">
                                     <i class="ph ph-rocket-launch"></i>
                                 </div>
@@ -1348,7 +1346,7 @@
                             </div>
                         </div>
                         <div class="text-center mt-16">
-                             <a href="#" onclick="showPage('boka-samtal-portal'); return false;" class="btn-secondary-on-dark inline-block w-full md:w-auto">Starta er AI-Portal</a>
+                             <a href="#" onclick="window.nord.showPage('boka-samtal-portal'); return false;" class="btn-secondary-on-dark inline-block w-full md:w-auto">Starta er AI-Portal</a>
                         </div>
                     </div>
                 </div>
@@ -1389,7 +1387,7 @@
                     </p>
                 </div>
                 <div class="mt-12 md:mt-16 mb-10">
-                    <a href="#" onclick="showPage('vilka-ar-vi'); return false;" class="btn-secondary-on-dark px-10 py-4 text-lg lg:text-xl lg:px-12 lg:py-5 inline-flex items-center">
+                    <a href="#" onclick="window.nord.showPage('vilka-ar-vi'); return false;" class="btn-secondary-on-dark px-10 py-4 text-lg lg:text-xl lg:px-12 lg:py-5 inline-flex items-center">
                         Starta Din Resa <i class="ph-paper-plane-tilt ml-2"></i>
                     </a>
                     <p class="text-xs text-sky-300 mt-2 flex items-center justify-center">
@@ -1501,14 +1499,14 @@
                             <div><label for="skraddarsydd-company" class="form-label">Företagsnamn</label><input type="text" name="company" id="skraddarsydd-company" required class="form-input"></div>
                             <div><label for="skraddarsydd-email" class="form-label">E-post</label><input type="email" name="email" id="skraddarsydd-email" required class="form-input"></div>
                             <div><label for="skraddarsydd-phone" class="form-label">Telefon (valfritt)</label><input type="tel" name="phone" id="skraddarsydd-phone" class="form-input"></div>
-                            <button type="button" onclick="nextCustomFormStep('formSkraddarsydd', 1)" class="btn-primary w-full mt-6">Nästa <i class="ph-arrow-right ml-2"></i></button>
+                            <button type="button" onclick="window.nord.nextCustomFormStep('formSkraddarsydd', 1)" class="btn-primary w-full mt-6">Nästa <i class="ph-arrow-right ml-2"></i></button>
                         </div>
                         <div class="form-step" data-step="2">
                             <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 2/4: Om Er Verksamhet</h4>
                             <div><label for="skraddarsydd-industry" class="form-label">Bransch</label><input type="text" name="industry" id="skraddarsydd-industry" class="form-input"></div>
                             <div><label for="skraddarsydd-size" class="form-label">Ungefärligt antal anställda</label><input type="text" name="company-size" id="skraddarsydd-size" class="form-input"></div>
                             <div><label for="skraddarsydd-services" class="form-label">Beskriv era huvudsakliga tjänster/produkter</label><textarea name="services-products" id="skraddarsydd-services" rows="3" class="form-textarea"></textarea></div>
-                            <div class="flex justify-between mt-6"><button type="button" onclick="prevCustomFormStep('formSkraddarsydd', 2)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="nextCustomFormStep('formSkraddarsydd', 2)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
+                            <div class="flex justify-between mt-6"><button type="button" onclick="window.nord.prevCustomFormStep('formSkraddarsydd', 2)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="window.nord.nextCustomFormStep('formSkraddarsydd', 2)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
                         </div>
                         <div class="form-step" data-step="3">
                             <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 3/4: Era AI-Ambitioner</h4>
@@ -1524,14 +1522,14 @@
                                     <option value="expert">Expert / Ledande (Vi utvecklar egna AI-system/är ledande)</option>
                                 </select>
                             </div>
-                            <div class="flex justify-between mt-6"><button type="button" onclick="prevCustomFormStep('formSkraddarsydd', 3)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="nextCustomFormStep('formSkraddarsydd', 3)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
+                            <div class="flex justify-between mt-6"><button type="button" onclick="window.nord.prevCustomFormStep('formSkraddarsydd', 3)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="window.nord.nextCustomFormStep('formSkraddarsydd', 3)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
                         </div>
                         <div class="form-step" data-step="4">
                             <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 4/4: Tidsram & Budget</h4>
                             <div><label for="skraddarsydd-timeline" class="form-label">Ungefärlig tidsram för projektstart?</label><input type="text" name="timeline" id="skraddarsydd-timeline" class="form-input"></div>
                             <div><label for="skraddarsydd-budget" class="form-label">Har ni en budget i åtanke för detta projekt? (valfritt)</label><input type="text" name="budget" id="skraddarsydd-budget" class="form-input"></div>
                             <div><label for="skraddarsydd-comments" class="form-label">Övriga frågor eller kommentarer?</label><textarea name="comments" id="skraddarsydd-comments" rows="3" class="form-textarea"></textarea></div>
-                            <div class="flex justify-between mt-6"><button type="button" onclick="prevCustomFormStep('formSkraddarsydd', 4)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="submit" class="btn-primary w-auto text-lg">Skicka Förfrågan</button></div>
+                            <div class="flex justify-between mt-6"><button type="button" onclick="window.nord.prevCustomFormStep('formSkraddarsydd', 4)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="submit" class="btn-primary w-auto text-lg">Skicka Förfrågan</button></div>
                         </div>
                     </form>
                     <div id="formSkraddarsyddSuccessMessage" class="form-message form-success-message"></div>
@@ -1553,21 +1551,21 @@
                             <div><label for="portal-company" class="form-label">Företagsnamn</label><input type="text" name="company" id="portal-company" required class="form-input"></div>
                             <div><label for="portal-email" class="form-label">E-post</label><input type="email" name="email" id="portal-email" required class="form-input"></div>
                             <div><label for="portal-phone" class="form-label">Telefon (valfritt)</label><input type="tel" name="phone" id="portal-phone" class="form-input"></div>
-                            <button type="button" onclick="nextCustomFormStep('formAiPortal', 1)" class="btn-primary w-full mt-6">Nästa <i class="ph-arrow-right ml-2"></i></button>
+                            <button type="button" onclick="window.nord.nextCustomFormStep('formAiPortal', 1)" class="btn-primary w-full mt-6">Nästa <i class="ph-arrow-right ml-2"></i></button>
                         </div>
                         <div class="form-step" data-step="2">
                             <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 2/4: Om Ert Team & Behov</h4>
                             <div><label for="portal-industry" class="form-label">Bransch</label><input type="text" name="industry" id="portal-industry" class="form-input"></div>
                             <div><label for="portal-participants" class="form-label">Ungefärligt antal deltagare till sessionen</label><input type="number" name="participants" id="portal-participants" class="form-input" min="1"></div>
                             <div><label for="portal-roles" class="form-label">Vilka roller/avdelningar skulle främst delta?</label><textarea name="roles" id="portal-roles" rows="2" class="form-textarea"></textarea></div>
-                            <div class="flex justify-between mt-6"><button type="button" onclick="prevCustomFormStep('formAiPortal', 2)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="nextCustomFormStep('formAiPortal', 2)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
+                            <div class="flex justify-between mt-6"><button type="button" onclick="window.nord.prevCustomFormStep('formAiPortal', 2)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="window.nord.nextCustomFormStep('formAiPortal', 2)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
                         </div>
                         <div class="form-step" data-step="3">
                              <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 3/4: Förväntningar</h4>
                             <div><label for="portal-expectations" class="form-label">Vad är det viktigaste ni hoppas få ut av en 3-timmars AI-strategisession?</label><textarea name="expectations" id="portal-expectations" rows="3" class="form-textarea"></textarea></div>
                             <div><label for="portal-focus" class="form-label">Finns det specifika områden eller frågeställningar ni vill att sessionen ska täcka?</label><textarea name="focus-areas" id="portal-focus" rows="2" class="form-textarea"></textarea></div>
                             <div><label for="portal-ai-experience" class="form-label">Erfarenhet av AI inom teamet?</label><select id="portal-ai-experience" name="ai-experience" class="form-select"><option>Ingen tidigare erfarenhet</option><option>Grundläggande kännedom</option><option>Har testat vissa AI-verktyg</option><option>Använder AI i vissa processer</option></select></div>
-                            <div class="flex justify-between mt-6"><button type="button" onclick="prevCustomFormStep('formAiPortal', 3)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="nextCustomFormStep('formAiPortal', 3)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
+                            <div class="flex justify-between mt-6"><button type="button" onclick="window.nord.prevCustomFormStep('formAiPortal', 3)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="window.nord.nextCustomFormStep('formAiPortal', 3)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
                         </div>
                         <div class="form-step" data-step="4">
                             <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 4/4: Logistik & Övrigt</h4>
@@ -1575,7 +1573,7 @@
                             <div><label for="portal-location" class="form-label">Om fysiskt, önskad ort (valfritt)</label><input type="text" name="location" id="portal-location" class="form-input"></div>
                             <div><label for="portal-timeline" class="form-label">Önskemål om datum/tid (valfritt)</label><input type="text" name="timeline" id="portal-timeline" class="form-input"></div>
                             <div><label for="portal-comments" class="form-label">Övriga frågor eller kommentarer?</label><textarea name="comments" id="portal-comments" rows="3" class="form-textarea"></textarea></div>
-                            <div class="flex justify-between mt-6"><button type="button" onclick="prevCustomFormStep('formAiPortal', 4)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="submit" class="btn-primary w-auto text-lg">Skicka Förfrågan</button></div>
+                            <div class="flex justify-between mt-6"><button type="button" onclick="window.nord.prevCustomFormStep('formAiPortal', 4)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="submit" class="btn-primary w-auto text-lg">Skicka Förfrågan</button></div>
                         </div>
                     </form>
                     <div id="formAiPortalSuccessMessage" class="form-message form-success-message"></div>
@@ -1590,7 +1588,7 @@
         <div class="section-content-wrapper py-6 relative z-10">
             <div class="grid md:grid-cols-3 gap-6 text-sm">
                 <div class="md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-                    <a href="#" onclick="showPage('hero'); return false;" class="inline-block mb-2">
+                    <a href="#" onclick="window.nord.showPage('hero'); return false;" class="inline-block mb-2">
                         <img src="https://raw.githubusercontent.com/NordSync/Logga-minus-text/main/Final%20logo%20no%20text.svg" alt="NordSync Logotyp" class="h-16">
                     </a>
                     <p class="text-xs text-content-dark-bg">AI-drivna system med mänsklig insikt och teknologisk precision.</p>
@@ -1599,10 +1597,10 @@
                 <div class="md:col-span-1 text-center md:text-left">
                     <p class="font-semibold text-nord-sync-text-light mb-2">Snabblänkar</p>
                     <div class="footer-quicklinks">
-                        <a href="#" onclick="showPage('om-oss'); return false;" class="footer-link">Om Oss</a>
-                        <a href="#" onclick="showPage('ai-reaktor'); return false;" class="footer-link">AI-Reaktor</a>
-                        <a href="#" onclick="showPage('ai-portal'); return false;" class="footer-link">AI-Portal</a>
-                        <a href="#" onclick="showPage('karriar'); return false;" class="footer-link">Gör din del</a>
+                        <a href="#" onclick="window.nord.showPage('om-oss'); return false;" class="footer-link">Om Oss</a>
+                        <a href="#" onclick="window.nord.showPage('ai-reaktor'); return false;" class="footer-link">AI-Reaktor</a>
+                        <a href="#" onclick="window.nord.showPage('ai-portal'); return false;" class="footer-link">AI-Portal</a>
+                        <a href="#" onclick="window.nord.showPage('karriar'); return false;" class="footer-link">Gör din del</a>
                     </div>
                 </div>
 
@@ -1622,93 +1620,315 @@
     </footer>
     
     <script>
-        // --- GLOBAL FUNCTIONS CALLED FROM HTML ---
-        function showPage(pageIdToShow) {
-            document.querySelectorAll('main > section').forEach(section => section.style.display = 'none');
+        document.addEventListener('DOMContentLoaded', () => {
+            window.nord = {};
 
-            if (pageIdToShow === 'hero') {
-                ['hero', 'home-diagram-section', 'home-contact-section'].forEach(id => {
-                    const section = document.getElementById(id);
-                    if (section) section.style.display = 'flex';
-                });
-            } else {
-                const section = document.getElementById(pageIdToShow);
-                if(section) {
-                    if (section.classList.contains('space-background-section')) {
-                        section.style.display = 'flex';
-                    } else {
-                        section.style.display = 'block';
+            // --- REBUILT AI REAKTOR ANIMATION ENGINE (V5 - FINAL) ---
+            window.nord.aiReaktorAnimation = {
+                isInitialized: false,
+                isActive: false,
+                animationFrameId: null,
+                reactorSection: null,
+                canvas: null,
+                ctx: null,
+                svg: null,
+                modules: [],
+                intakeItems: [],
+                intakeParticles: [],
+                moduleTargets: [],
+                lastEmissionTime: 0,
+                EMISSION_INTERVAL: 1500,
+
+                init() {
+                    if (this.isInitialized) return;
+                    
+                    this.reactorSection = document.getElementById('ai-reaktor');
+                    this.canvas = document.getElementById('particle-flow-canvas');
+                    this.svg = document.getElementById('reactor-circuit-svg');
+                    
+                    if (!this.reactorSection || !this.canvas || !this.svg) {
+                        console.error("AI Reaktor animation elements are missing.");
+                        return;
+                    }
+                    this.ctx = this.canvas.getContext('2d');
+                    
+                    document.fonts.ready.then(() => {
+                        this.setupObservers();
+                        this.isInitialized = true;
+                    });
+                },
+
+                setupObservers() {
+                    const intersectionObserver = new IntersectionObserver((entries) => {
+                        if (entries[0].isIntersecting) {
+                            if (!this.isActive) {
+                                requestAnimationFrame(() => {
+                                    this.start();
+                                });
+                            }
+                        } else {
+                            this.stop();
+                        }
+                    }, { threshold: 0.1 });
+                    intersectionObserver.observe(this.reactorSection);
+
+                    const resizeObserver = new ResizeObserver(() => {
+                        if (this.isActive) {
+                           this.recalculateDimensions();
+                        }
+                    });
+                    resizeObserver.observe(this.reactorSection);
+                },
+                
+                start() {
+                    if (this.isActive) return;
+                    this.isActive = true;
+                    this.recalculateDimensions();
+                    if (!this.animationFrameId) {
+                       this.animate();
+                    }
+                },
+                
+                stop() {
+                    this.isActive = false;
+                    if (this.animationFrameId) {
+                        cancelAnimationFrame(this.animationFrameId);
+                        this.animationFrameId = null;
+                    }
+                    this.intakeParticles = [];
+                },
+
+                recalculateDimensions() {
+                    if (!this.reactorSection || !this.canvas) return;
+                    
+                    this.modules = Array.from(document.querySelectorAll('#reactorCoreTarget .reactor-module'));
+                    this.intakeItems = Array.from(document.querySelectorAll('#intakeItemsContainer .reactor-input-item'));
+                    
+                    this.reactorSection.offsetHeight;
+
+                    this.canvas.width = this.reactorSection.offsetWidth;
+                    this.canvas.height = this.reactorSection.offsetHeight;
+                    
+                    const container = this.reactorSection.querySelector('.solution-reactor-container');
+                    if(container) {
+                        this.moduleTargets = this.modules.map(el => this.getElementCenter(el, container));
+                    }
+                    this.createSvgPaths();
+                },
+
+                getElementCenter(el, relativeToEl) {
+                    const relativeRect = relativeToEl.getBoundingClientRect();
+                    const elRect = el.getBoundingClientRect();
+                    return {
+                        x: elRect.left + elRect.width / 2 - relativeRect.left,
+                        y: elRect.top + elRect.height / 2 - relativeRect.top,
+                    };
+                },
+
+                animate(timestamp) {
+                    if (!this.isActive) return;
+                    
+                    this.animationFrameId = requestAnimationFrame(this.animate.bind(this));
+                    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+
+                    if (!this.lastEmissionTime || timestamp - this.lastEmissionTime > this.EMISSION_INTERVAL) {
+                        this.lastEmissionTime = timestamp;
+                        if(this.intakeParticles.length === 0) {
+                            this.recalculateDimensions();
+                        }
+                        this.emitIntakeParticles();
+                    }
+
+                    this.intakeParticles.forEach((p, i) => {
+                        p.update();
+                        p.draw(this.ctx);
+                        if (p.life <= 0) {
+                            this.intakeParticles.splice(i, 1);
+                        }
+                    });
+                },
+
+                emitIntakeParticles() {
+                    const container = this.reactorSection.querySelector('.solution-reactor-container');
+                    if (this.intakeItems.length === 0 || !container || this.moduleTargets.length === 0) {
+                         return;
+                    }
+                    
+                    this.intakeItems.forEach(item => {
+                        const count = 2 + Math.floor(Math.random() * 2);
+                        for (let i = 0; i < count; i++) {
+                            const { x, y } = this.getElementCenter(item, container);
+                            const startX = x + (Math.random() - 0.5) * item.offsetWidth * 0.8;
+                            const startY = y + (Math.random() - 0.5) * item.offsetHeight * 0.8;
+                            const target = this.moduleTargets[Math.floor(Math.random() * this.moduleTargets.length)];
+                            this.intakeParticles.push(new IntakeParticle(startX, startY, target));
+                        }
+                    });
+                },
+
+                createSvgPaths() {
+                    if (!this.svg) return;
+                    const defs = this.svg.querySelector('defs');
+                    this.svg.innerHTML = ''; // Clear previous paths
+                    if (defs) {
+                        this.svg.appendChild(defs.cloneNode(true));
+                    }
+                    
+                    const svgRect = this.svg.getBoundingClientRect();
+                    if (svgRect.width === 0) return;
+
+                    const anchors = this.modules.map(m => {
+                        const elRect = m.getBoundingClientRect();
+                        return {
+                            left: { y: (elRect.top - svgRect.top) + elRect.height / 2, x: elRect.left - svgRect.left },
+                            right: { y: (elRect.top - svgRect.top) + elRect.height / 2, x: elRect.right - svgRect.left }
+                        };
+                    });
+                     if(anchors.length < 2) return;
+
+                    for (let i = 0; i < anchors.length - 1; i++) {
+                        const p1 = anchors[i].right;
+                        const p2 = anchors[i+1].left;
+                        const midX = p1.x + (p2.x - p1.x) / 2;
+                        const pathD = `M ${p1.x} ${p1.y} C ${midX} ${p1.y}, ${midX} ${p2.y}, ${p2.x} ${p2.y}`;
+                        
+                        const bgPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                        bgPath.setAttribute('d', pathD);
+                        bgPath.setAttribute('stroke', 'rgba(var(--nord-sync-cyan-rgb), 0.15)');
+                        bgPath.setAttribute('stroke-width', '8');
+                        bgPath.setAttribute('fill', 'none');
+                        this.svg.appendChild(bgPath);
+                        
+                        const animatedPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
+                        animatedPath.setAttribute('d', pathD);
+                        animatedPath.setAttribute('stroke', 'url(#pulse-gradient)');
+                        animatedPath.setAttribute('stroke-width', '2.5');
+                        animatedPath.setAttribute('fill', 'none');
+                        this.svg.appendChild(animatedPath);
                     }
                 }
-            }
-            
-            updateActiveLink(pageIdToShow);
-            window.scrollTo(0, 0); 
-            closeMobileMenu();
-        };
-
-        function handleBokaMoteClick(event) {
-            event.preventDefault();
-            showPage('hero');
-            setTimeout(() => {
-                const contactSection = document.getElementById('home-contact-anchor');
-                if(contactSection) {
-                        contactSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }, 100);
-            closeMobileMenu();
-        };
-
-        function toggleTeamCard(cardElement) { cardElement.classList.toggle('expanded'); }
-        function toggleReactorModuleDetails(moduleElement) {
-            const isActive = moduleElement.classList.contains('active');
-            document.querySelectorAll('.reactor-module').forEach(m => m.classList.remove('active'));
-            if(!isActive) {
-                moduleElement.classList.add('active');
-            }
-        }
-        function toggleSolutionExampleDetails(button) { button.closest('.example-solution-card').classList.toggle('active'); }
-        function togglePortalStepDetails(stepElement) { stepElement.classList.toggle('active'); }
-
-        function nextCustomFormStep(formId, currentStep) {
-            document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
-            document.querySelector(`#${formId} .form-step[data-step="${currentStep + 1}"]`).classList.add('active');
-        };
-        function prevCustomFormStep(formId, currentStep) {
-            document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
-            document.querySelector(`#${formId} .form-step[data-step="${currentStep - 1}"]`).classList.add('active');
-        };
-        
-        function closeMobileMenu() {
-            const mobileMenu = document.getElementById('mobile-menu');
-            const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
-            if(mobileMenu && mobileMenuTrigger) {
-                mobileMenu.classList.add('hidden');
-                mobileMenuTrigger.classList.remove('active');
-                mobileMenuTrigger.style.animation = '';
-            }
-        };
-
-        function updateActiveLink(currentPageId) {
-            const pageMap = {
-                'vilka-ar-vi': 'om-oss', 
-                'boka-samtal-skraddarsydd': 'ai-reaktor', 
-                'boka-samtal-portal': 'ai-portal'
             };
-            const activePage = pageMap[currentPageId] || currentPageId;
+            
+            class IntakeParticle {
+                constructor(startX, startY, target) {
+                    this.x = startX;
+                    this.y = startY;
+                    this.targetX = target.x;
+                    this.targetY = target.y;
+                    this.life = 500 + Math.random() * 250;
+                    this.initialLife = this.life;
+                    this.attraction = 0.001;
+                    this.swayAngle = Math.random() * Math.PI * 2;
+                    this.swaySpeed = 0.02 + Math.random() * 0.02;
+                    this.swayAmount = 0.5 + Math.random() * 0.5;
+                    this.size = Math.random() * 1.5 + 1;
+                }
+                update() {
+                    this.life--;
+                    const dx = this.targetX - this.x;
+                    const dy = this.targetY - this.y;
+                    this.x += dx * this.attraction * (Math.random() * 0.5 + 0.75);
+                    this.y += dy * this.attraction * (Math.random() * 0.5 + 0.75);
+                    this.swayAngle += this.swaySpeed;
+                    this.x += Math.sin(this.swayAngle) * this.swayAmount;
+                }
+                draw(context) {
+                    const opacity = Math.min(1, (this.life / this.initialLife) * 2) * 0.8;
+                    context.beginPath();
+                    context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    context.fillStyle = `rgba(125, 211, 252, ${opacity})`;
+                    context.fill();
+                }
+            }
 
-            document.querySelectorAll('header nav a.nav-link').forEach(link => link.classList.toggle('active', link.dataset.page === activePage));
-            document.querySelectorAll('#mobile-menu a').forEach(link => {
-                const isActive = link.dataset.page === activePage;
-                link.classList.toggle('bg-sky-700/50', isActive);
-                link.classList.toggle('nord-accent-text', isActive);
-                link.classList.toggle('font-semibold', isActive);
-            });
-        }
+
+            // --- GLOBAL FUNCTIONS & PAGE LOGIC ---
+            window.nord.showPage = function(pageIdToShow) {
+                document.querySelectorAll('main > section').forEach(section => section.style.display = 'none');
+
+                if (pageIdToShow === 'hero') {
+                    ['hero', 'home-diagram-section', 'home-contact-section'].forEach(id => {
+                        const section = document.getElementById(id);
+                        if (section) section.style.display = 'flex';
+                    });
+                } else {
+                    const section = document.getElementById(pageIdToShow);
+                    if(section) {
+                        section.style.display = 'flex';
+                    }
+                }
+                
+                if (pageIdToShow === 'ai-reaktor') {
+                    window.nord.aiReaktorAnimation.init();
+                }
+                
+                window.nord.updateActiveLink(pageIdToShow);
+                window.scrollTo(0, 0); 
+                window.nord.closeMobileMenu();
+            };
+
+            window.nord.handleBokaMoteClick = function(event) {
+                event.preventDefault();
+                window.nord.showPage('hero');
+                setTimeout(() => {
+                    const contactSection = document.getElementById('home-contact-anchor');
+                    if(contactSection) {
+                            contactSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }, 100);
+                window.nord.closeMobileMenu();
+            };
+
+            window.nord.toggleTeamCard = (cardElement) => cardElement.classList.toggle('expanded');
+            window.nord.toggleReactorModuleDetails = (moduleElement) => {
+                const isActive = moduleElement.classList.contains('active');
+                document.querySelectorAll('.reactor-module').forEach(m => m.classList.remove('active'));
+                if(!isActive) {
+                    moduleElement.classList.add('active');
+                }
+            }
+            window.nord.toggleSolutionExampleDetails = (button) => button.closest('.example-solution-card').classList.toggle('active');
+            window.nord.togglePortalStepDetails = (stepElement) => stepElement.classList.toggle('active');
+
+            window.nord.nextCustomFormStep = (formId, currentStep) => {
+                document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
+                document.querySelector(`#${formId} .form-step[data-step="${currentStep + 1}"]`).classList.add('active');
+            };
+            window.nord.prevCustomFormStep = (formId, currentStep) => {
+                document.querySelector(`#${formId} .form-step[data-step="${currentStep}"]`).classList.remove('active');
+                document.querySelector(`#${formId} .form-step[data-step="${currentStep - 1}"]`).classList.add('active');
+            };
+            
+            window.nord.closeMobileMenu = () => {
+                const mobileMenu = document.getElementById('mobile-menu');
+                const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
+                if(mobileMenu && mobileMenuTrigger) {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuTrigger.classList.remove('active');
+                    mobileMenuTrigger.style.animation = '';
+                }
+            };
+
+            window.nord.updateActiveLink = function(currentPageId) {
+                const pageMap = {
+                    'vilka-ar-vi': 'om-oss', 
+                    'boka-samtal-skraddarsydd': 'ai-reaktor', 
+                    'boka-samtal-portal': 'ai-portal'
+                };
+                const activePage = pageMap[currentPageId] || currentPageId;
+
+                document.querySelectorAll('header nav a.nav-link').forEach(link => link.classList.toggle('active', link.dataset.page === activePage));
+                document.querySelectorAll('#mobile-menu a').forEach(link => {
+                    const isActive = link.dataset.page === activePage;
+                    link.classList.toggle('bg-sky-700/50', isActive);
+                    link.classList.toggle('nord-accent-text', isActive);
+                    link.classList.toggle('font-semibold', isActive);
+                });
+            }
 
 
-        // --- DOM-DEPENDENT INITIALIZATION ---
-        document.addEventListener('DOMContentLoaded', () => {
+            // --- DOM-DEPENDENT INITIALIZATION ---
+            
             const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
             
             function toggleMobileMenu() {
@@ -1743,187 +1963,8 @@
             document.querySelectorAll('.stars-background').forEach(bg => createStars(bg));
 
             // Initiera första sidan
-            showPage('hero');
+            window.nord.showPage('hero');
             
-            // --- AI-Reaktor Animationer med SVG och Canvas (Hybrid-metod) ---
-            function setupFinalHybridAnimations() {
-                const reactorSection = document.getElementById('ai-reaktor');
-                if (!reactorSection) return;
-
-                const canvas = document.getElementById('particle-flow-canvas');
-                const ctx = canvas.getContext('2d');
-                const svg = document.getElementById('reactor-circuit-svg');
-                if (!svg || !canvas) return;
-                
-                const modules = [
-                    document.getElementById('reactorModule1'),
-                    document.getElementById('reactorModule2'),
-                    document.getElementById('reactorModule3')
-                ];
-                if (modules.some(m => !m)) return;
-
-                let intakeParticles = [];
-                let animationFrameId;
-                let moduleTargets = [];
-
-                const getElementCenter = (el, relativeToEl) => {
-                    const canvasRect = relativeToEl.getBoundingClientRect();
-                    const elRect = el.getBoundingClientRect();
-                    return {
-                        x: elRect.left + elRect.width / 2 - canvasRect.left,
-                        y: elRect.top + elRect.height / 2 - canvasRect.top,
-                    };
-                };
-
-                class IntakeParticle {
-                    constructor(startX, startY, target) {
-                        this.x = startX;
-                        this.y = startY;
-                        this.targetX = target.x;
-                        this.targetY = target.y;
-                        this.life = 600 + Math.random() * 300;
-                        this.initialLife = this.life;
-                        this.vy = 0.2 + Math.random() * 0.2;
-                        this.attraction = 0.0005;
-                        this.swayAngle = Math.random() * Math.PI * 2;
-                        this.swaySpeed = 0.01 + Math.random() * 0.01;
-                        this.swayAmount = 0.4 + Math.random() * 0.4;
-                        this.size = Math.random() * 2 + 1.2;
-                    }
-                    update() {
-                        this.life--;
-                        const dx = this.targetX - this.x;
-                        const dy = this.targetY - this.y;
-                        this.x += dx * this.attraction;
-                        this.y += dy * this.attraction;
-                        this.swayAngle += this.swaySpeed;
-                        this.x += Math.sin(this.swayAngle) * this.swayAmount;
-                        this.y += this.vy;
-                    }
-                    draw(context) {
-                        const opacity = Math.min(1, (this.life / this.initialLife) * 1.5) * 0.7;
-                        context.beginPath();
-                        context.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                        context.fillStyle = `rgba(56, 189, 248, ${opacity})`;
-                        context.fill();
-                    }
-                }
-                
-                const createSvgPaths = () => {
-                    svg.innerHTML = '<defs>' + svg.querySelector('defs').innerHTML + '</defs>'; 
-                    const svgRect = svg.getBoundingClientRect();
-                    if (svgRect.width === 0) return;
-
-                    const anchors = modules.map(m => {
-                        const elRect = m.getBoundingClientRect();
-                        return {
-                            left: { y: (elRect.top - svgRect.top) + elRect.height / 2, x: elRect.left - svgRect.left },
-                            right: { y: (elRect.top - svgRect.top) + elRect.height / 2, x: elRect.right - svgRect.left }
-                        };
-                    });
-
-                    for (let i = 0; i < anchors.length - 1; i++) {
-                        const p1 = anchors[i].right;
-                        const p2 = anchors[i+1].left;
-                        const midX = p1.x + (p2.x - p1.x) / 2;
-                        const pathD = `M ${p1.x} ${p1.y} L ${midX} ${p1.y} L ${midX} ${p2.y} L ${p2.x} ${p2.y}`;
-                        
-                        const bgPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-                        bgPath.setAttribute('d', pathD);
-                        bgPath.setAttribute('stroke', 'rgba(var(--nord-sync-cyan-rgb), 0.15)');
-                        bgPath.setAttribute('stroke-width', '8');
-                        bgPath.setAttribute('fill', 'none');
-                        bgPath.setAttribute('stroke-linecap', 'round');
-                        bgPath.setAttribute('stroke-linejoin', 'round');
-                        svg.appendChild(bgPath);
-                        
-                        const animatedPath = document.createElementNS("http://www.w3.org/2000/svg", 'path');
-                        animatedPath.setAttribute('d', pathD);
-                        animatedPath.setAttribute('stroke', 'url(#pulse-gradient)');
-                        animatedPath.setAttribute('stroke-width', '2.5');
-                        animatedPath.setAttribute('fill', 'none');
-                        animatedPath.setAttribute('stroke-linecap', 'round');
-                        animatedPath.setAttribute('stroke-linejoin', 'round');
-                        svg.appendChild(animatedPath);
-                    }
-                };
-                
-                let lastEmissionTime = 0;
-                const EMISSION_INTERVAL = 2500;
-                
-                function emitIntakeParticles() {
-                    const intakeContainer = document.getElementById('intakeItemsContainer');
-                    const intakeItems = intakeContainer.querySelectorAll('.reactor-input-item');
-                    const container = document.querySelector('.solution-reactor-container');
-                    if (!intakeContainer || !container || moduleTargets.length === 0) return;
-                    
-                    const containerRect = container.getBoundingClientRect();
-
-                    intakeItems.forEach(item => {
-                        const itemRect = item.getBoundingClientRect();
-                        const count = 3 + Math.floor(Math.random() * 2); 
-                        for (let i = 0; i < count; i++) {
-                            const startX = (itemRect.left - containerRect.left) + (Math.random() * itemRect.width);
-                            const startY = (itemRect.top - containerRect.top) + (Math.random() * itemRect.height);
-                            const target = moduleTargets[Math.floor(Math.random() * moduleTargets.length)];
-                            intakeParticles.push(new IntakeParticle(startX, startY, target));
-                        }
-                    });
-                }
-                
-                function animateCanvas(timestamp) {
-                    animationFrameId = requestAnimationFrame(animateCanvas);
-                    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-                    if (isVisible && timestamp - lastEmissionTime > EMISSION_INTERVAL) {
-                         lastEmissionTime = timestamp;
-                         emitIntakeParticles();
-                    }
-
-                    intakeParticles.forEach((p, i) => {
-                        p.update();
-                        p.draw(ctx);
-                        if (p.life <= 0) {
-                            intakeParticles.splice(i, 1);
-                        }
-                    });
-                }
-                
-                let isVisible = false;
-                const intersectionObserver = new IntersectionObserver((entries) => {
-                    isVisible = entries[0].isIntersecting;
-                    if(isVisible) {
-                       if (!animationFrameId) {
-                           animationFrameId = requestAnimationFrame(animateCanvas);
-                       }
-                       createSvgPaths();
-                    } else {
-                        if (animationFrameId) {
-                            cancelAnimationFrame(animationFrameId);
-                            animationFrameId = null;
-                            intakeParticles = [];
-                        }
-                    }
-                }, { threshold: 0.1 });
-
-                const resizeObserver = new ResizeObserver(() => {
-                    canvas.width = reactorSection.offsetWidth;
-                    canvas.height = reactorSection.offsetHeight;
-                    const container = document.querySelector('.solution-reactor-container');
-                    if (container) {
-                         moduleTargets = modules.map(el => getElementCenter(el, container));
-                    }
-                    if (isVisible) {
-                        createSvgPaths();
-                    }
-                });
-                
-                intersectionObserver.observe(reactorSection);
-                modules.forEach(m => resizeObserver.observe(m));
-            }
-            
-            setupFinalHybridAnimations();
-
             function setupCareerFormLogic() {
                 const interestSelect = document.getElementById('applicant-ai-interest');
                 const web3Container = document.getElementById('web3-experience-container');
@@ -1938,14 +1979,13 @@
                     });
                 }
             }
-
             setupCareerFormLogic();
 
              // --- Interaktiv Kodterminal ---
             const interactiveTerminal = document.querySelector('.code-terminal-card.interactive');
             if (interactiveTerminal) {
                 const handleInteraction = () => {
-                    showPage('karriar');
+                    window.nord.showPage('karriar');
                 };
                 
                 const codeElement = interactiveTerminal.querySelector('code');
