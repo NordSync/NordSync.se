@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="sv">
 <head>
     <meta charset="UTF-8">
@@ -823,7 +823,6 @@
     </style>
 </head>
 <body class="antialiased">
-
     <header id="header" class="fixed w-full z-50 top-0 left-0 right-0">
         <div class="container mx-auto px-4 md:px-6 py-4"> 
             <div class="flex items-center justify-between">
@@ -1623,7 +1622,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             window.nord = {};
 
-            // --- REBUILT AI REAKTOR ANIMATION ENGINE (V5 - FINAL) ---
+            // --- REBUILT AI REAKTOR ANIMATION ENGINE (V6 - FINAL) ---
             window.nord.aiReaktorAnimation = {
                 isInitialized: false,
                 isActive: false,
@@ -1632,12 +1631,14 @@
                 canvas: null,
                 ctx: null,
                 svg: null,
-                modules: [],
-                intakeItems: [],
                 intakeParticles: [],
-                moduleTargets: [],
                 lastEmissionTime: 0,
                 EMISSION_INTERVAL: 1500,
+
+                elementCache: {
+                    modules: [],
+                    intakeItems: []
+                },
 
                 init() {
                     if (this.isInitialized) return;
@@ -1647,7 +1648,6 @@
                     this.svg = document.getElementById('reactor-circuit-svg');
                     
                     if (!this.reactorSection || !this.canvas || !this.svg) {
-                        console.error("AI Reaktor animation elements are missing.");
                         return;
                     }
                     this.ctx = this.canvas.getContext('2d');
@@ -1662,9 +1662,7 @@
                     const intersectionObserver = new IntersectionObserver((entries) => {
                         if (entries[0].isIntersecting) {
                             if (!this.isActive) {
-                                requestAnimationFrame(() => {
-                                    this.start();
-                                });
+                                requestAnimationFrame(() => this.start());
                             }
                         } else {
                             this.stop();
@@ -1701,17 +1699,19 @@
                 recalculateDimensions() {
                     if (!this.reactorSection || !this.canvas) return;
                     
-                    this.modules = Array.from(document.querySelectorAll('#reactorCoreTarget .reactor-module'));
-                    this.intakeItems = Array.from(document.querySelectorAll('#intakeItemsContainer .reactor-input-item'));
-                    
-                    this.reactorSection.offsetHeight;
+                    this.reactorSection.offsetHeight; 
 
                     this.canvas.width = this.reactorSection.offsetWidth;
                     this.canvas.height = this.reactorSection.offsetHeight;
                     
                     const container = this.reactorSection.querySelector('.solution-reactor-container');
+                    
+                    const moduleElements = Array.from(document.querySelectorAll('#reactorCoreTarget .reactor-module'));
+                    const intakeItemElements = Array.from(document.querySelectorAll('#intakeItemsContainer .reactor-input-item'));
+
                     if(container) {
-                        this.moduleTargets = this.modules.map(el => this.getElementCenter(el, container));
+                        this.elementCache.modules = moduleElements.map(el => ({ element: el }));
+                        this.elementCache.intakeItems = intakeItemElements.map(el => ({ element: el }));
                     }
                     this.createSvgPaths();
                 },
@@ -1733,7 +1733,7 @@
 
                     if (!this.lastEmissionTime || timestamp - this.lastEmissionTime > this.EMISSION_INTERVAL) {
                         this.lastEmissionTime = timestamp;
-                        if(this.intakeParticles.length === 0) {
+                        if (this.elementCache.intakeItems.length === 0 || this.elementCache.modules.length === 0) {
                             this.recalculateDimensions();
                         }
                         this.emitIntakeParticles();
@@ -1750,18 +1750,24 @@
 
                 emitIntakeParticles() {
                     const container = this.reactorSection.querySelector('.solution-reactor-container');
-                    if (this.intakeItems.length === 0 || !container || this.moduleTargets.length === 0) {
-                         return;
+                    if (this.elementCache.intakeItems.length === 0 || !container || this.elementCache.modules.length === 0) {
+                        return;
                     }
                     
-                    this.intakeItems.forEach(item => {
+                    this.elementCache.intakeItems.forEach(itemCache => {
                         const count = 2 + Math.floor(Math.random() * 2);
                         for (let i = 0; i < count; i++) {
-                            const { x, y } = this.getElementCenter(item, container);
-                            const startX = x + (Math.random() - 0.5) * item.offsetWidth * 0.8;
-                            const startY = y + (Math.random() - 0.5) * item.offsetHeight * 0.8;
-                            const target = this.moduleTargets[Math.floor(Math.random() * this.moduleTargets.length)];
-                            this.intakeParticles.push(new IntakeParticle(startX, startY, target));
+                            const sourceElement = itemCache.element;
+                            const targetCache = this.elementCache.modules[Math.floor(Math.random() * this.elementCache.modules.length)];
+                            const targetElement = targetCache.element;
+                            
+                            const startPos = this.getElementCenter(sourceElement, container);
+                            const targetPos = this.getElementCenter(targetElement, container);
+
+                            const startX = startPos.x + (Math.random() - 0.5) * sourceElement.offsetWidth * 0.8;
+                            const startY = startPos.y + (Math.random() - 0.5) * sourceElement.offsetHeight * 0.8;
+                            
+                            this.intakeParticles.push(new IntakeParticle(startX, startY, targetPos));
                         }
                     });
                 },
@@ -1769,16 +1775,16 @@
                 createSvgPaths() {
                     if (!this.svg) return;
                     const defs = this.svg.querySelector('defs');
-                    this.svg.innerHTML = ''; // Clear previous paths
+                    this.svg.innerHTML = ''; 
                     if (defs) {
                         this.svg.appendChild(defs.cloneNode(true));
                     }
                     
                     const svgRect = this.svg.getBoundingClientRect();
-                    if (svgRect.width === 0) return;
+                    if (svgRect.width === 0 || this.elementCache.modules.length < 2) return;
 
-                    const anchors = this.modules.map(m => {
-                        const elRect = m.getBoundingClientRect();
+                    const anchors = this.elementCache.modules.map(cache => {
+                        const elRect = cache.element.getBoundingClientRect();
                         return {
                             left: { y: (elRect.top - svgRect.top) + elRect.height / 2, x: elRect.left - svgRect.left },
                             right: { y: (elRect.top - svgRect.top) + elRect.height / 2, x: elRect.right - svgRect.left }
