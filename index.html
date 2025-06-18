@@ -234,11 +234,12 @@
             background-color: rgba(245, 101, 101, 0.1);
         }
 
-        main > section:not(#hero):not(#home-diagram-section):not(#home-contact-section) { 
+        main > section:not(#hero):not(#home-diagram-section):not(#home-testimonials-section):not(#home-contact-section) { 
             display: none; 
         }
         main > section#hero, 
         main > section#home-diagram-section,
+        main > section#home-testimonials-section,
         main > section#home-contact-section {
              display: flex; 
         }
@@ -291,13 +292,13 @@
             word-wrap: break-word;
             margin: 0;
             color: var(--nord-sync-text-medium);
-            outline: none; /* Ta bort outline vid fokus på contenteditable */
+            outline: none;
         }
         .syntax-comment { color: #808080; font-style: italic; }
         .syntax-keyword { color: var(--nord-sync-cyan); font-weight: 700; }
-        .syntax-class { color: #82AFFF; } /* Light Blue */
-        .syntax-function { color: #C792EA; } /* Purple */
-        .syntax-string { color: #C3E88D; } /* Light Green */
+        .syntax-class { color: #82AFFF; }
+        .syntax-function { color: #C792EA; }
+        .syntax-string { color: #C3E88D; }
         .blinking-cursor {
             display: inline-block;
             width: 8px;
@@ -489,6 +490,21 @@
         .example-solution-card:hover .service-pillar-icon-container i {
              transform: scale(1.1); filter: drop-shadow(0 0 6px var(--nord-sync-light-accent));
         }
+        .metric-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: rgba(var(--nord-sync-cyan-rgb), 0.1);
+            border: 1px solid rgba(var(--nord-sync-cyan-rgb), 0.3);
+            color: var(--nord-sync-light-accent);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 9999px;
+            margin-top: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .metric-badge i { font-size: 1rem; }
         .btn-read-more {
             background: transparent; color: var(--nord-sync-cyan); border: 1px solid var(--nord-sync-cyan);
             padding: 0.35rem 1rem; border-radius: 9999px; font-size: 0.8rem;
@@ -579,6 +595,69 @@
         }
         .portal-step-node.active .portal-step-node-details {
             display: block; 
+        }
+
+        .customer-journey-section {
+            padding: 4rem 0;
+            margin-top: 3rem;
+            border-top: 1px solid rgba(var(--nord-sync-cyan-rgb), 0.2);
+            border-bottom: 1px solid rgba(var(--nord-sync-cyan-rgb), 0.2);
+            background: linear-gradient(rgba(var(--nord-sync-deep-space-blue),0.2), rgba(var(--nord-sync-mid-space-blue),0.2));
+        }
+        .journey-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+        .journey-step {
+            background-color: rgba(var(--nord-sync-cyan-rgb), 0.05);
+            border: 1px solid rgba(var(--nord-sync-cyan-rgb), 0.15);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+            max-width: 320px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .journey-step-icon {
+            font-size: 2.5rem;
+            color: var(--nord-sync-cyan);
+            margin-bottom: 1rem;
+        }
+        .journey-step-title {
+            font-family: 'Comfortaa', sans-serif;
+            font-size: 1.25rem;
+            color: var(--nord-sync-text-light);
+            margin-bottom: 0.5rem;
+        }
+        .journey-step-description {
+            font-size: 0.9rem;
+            color: var(--nord-sync-text-medium);
+            line-height: 1.6;
+        }
+        .journey-connector {
+            font-size: 2rem;
+            color: rgba(var(--nord-sync-cyan-rgb), 0.4);
+            transform: rotate(90deg);
+        }
+
+        @media (min-width: 768px) {
+            .journey-container {
+                flex-direction: row;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .journey-step {
+                flex-grow: 1;
+            }
+            .journey-connector {
+                transform: rotate(0deg);
+                margin-top: 5rem;
+            }
         }
         
         /* --- VENN DIAGRAM STYLING - REBUILT V2 --- */
@@ -694,32 +773,64 @@
             }
         }
        
-        /* Nyckeln till transformation Styling */
-        .key-transformation-container {
-            display: flex; flex-direction: column; align-items: center; text-align: center;
-            padding: 2rem 0; position: relative; min-height: 250px; 
+        /* --- Testimonials Section Styling --- */
+        #home-testimonials-section {
+            padding: 4rem 0;
+            background-color: rgba(var(--nord-sync-deep-space-blue), 0.5);
         }
-        .key-graphic-wrapper {
-            position: relative; width: 150px; height: 150px; 
-            display: flex; align-items: center; justify-content: center;
-            margin-bottom: 2rem; 
+        .testimonial-card {
+            background-color: rgba(var(--nord-sync-cyan-rgb), 0.05);
+            border: 1px solid rgba(var(--nord-sync-cyan-rgb), 0.2);
+            border-radius: 1rem;
+            padding: 2.5rem;
+            text-align: center;
         }
-        .key-icon { 
-            font-size: 5rem; color: var(--nord-sync-cyan);
-            filter: drop-shadow(0px 4px 12px rgba(var(--nord-sync-cyan-rgb), 0.6));
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
-            z-index: 10; animation: keyholePulse 3s infinite ease-in-out; 
+        .testimonial-card-icon {
+            font-size: 3rem;
+            color: var(--nord-sync-cyan);
+            margin-bottom: 1.5rem;
+            opacity: 0.7;
         }
-        @keyframes keyholePulse { 
-            0%, 100% { transform: scale(1); filter: drop-shadow(0px 4px 12px rgba(var(--nord-sync-cyan-rgb), 0.5));}
-            50% { transform: scale(1.08); filter: drop-shadow(0px 6px 18px rgba(var(--nord-sync-cyan-rgb), 0.7));}
+        .testimonial-text {
+            font-size: 1.125rem;
+            font-style: italic;
+            color: var(--nord-sync-text-light);
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
         }
-        .key-graphic-wrapper:hover .key-icon { transform: translateY(-6px) scale(1.12); }
-        
-        .newsletter-section {
-            background-color: rgba(var(--nord-sync-cyan-rgb), 0.1);
-            border-top: 1px solid rgba(var(--nord-sync-cyan-rgb), 0.3);
-            border-bottom: 1px solid rgba(var(--nord-sync-cyan-rgb), 0.3);
+        .testimonial-author {
+            margin-top: 1.5rem;
+            font-weight: 600;
+            color: var(--nord-sync-text-light);
+        }
+        .testimonial-author .separator {
+            color: rgba(var(--nord-sync-cyan-rgb), 0.5);
+            margin: 0 0.5rem;
+        }
+        .testimonial-author .project-details {
+            font-weight: 400;
+            color: var(--nord-sync-text-medium);
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* --- Micro-Conversion CTA Styling --- */
+        .btn-intro-cta {
+            background-color: transparent;
+            color: var(--nord-sync-light-accent);
+            border: 1px solid var(--nord-sync-light-accent);
+            padding: 0.5rem 1.25rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 9999px;
+            transition: all 0.3s ease;
+        }
+        .btn-intro-cta:hover {
+            background-color: var(--nord-sync-light-accent);
+            color: var(--nord-sync-deep-space-blue);
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(var(--nord-sync-light-accent-rgb), 0.4);
         }
 
         #vilka-ar-vi-content {
@@ -909,6 +1020,28 @@
             </div>
         </section>
 
+        <section id="home-testimonials-section" class="space-background-section py-20 lg:py-28">
+            <div class="stars-background opacity-30" aria-hidden="true"></div>
+            <div class="section-content-wrapper">
+                 <div class="text-center mb-16">
+                    <span class="inline-block bg-sky-800/50 text-sky-200 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Förtroende & Resultat</span>
+                    <h3 class="text-3xl md:text-4xl font-bold text-white mt-4">Vad Våra <span class="section-title-accent relative">Partners Säger</span></h3>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-10">
+                     <div class="testimonial-card">
+                        <i class="ph-quotes testimonial-card-icon"></i>
+                        <p class="testimonial-text">"NordSync omvandlade vår datahantering. Det som tog ett helt team dagar att sammanställa tar nu vår AI-assistent minuter. Precisionen och de nya insikterna har varit avgörande för våra strategiska beslut."</p>
+                        <p class="testimonial-author">VD, Logistikföretag<span class="separator">|</span><span class="project-details">Projekt: Autonom dataanalys</span></p>
+                    </div>
+                     <div class="testimonial-card">
+                        <i class="ph-quotes testimonial-card-icon"></i>
+                        <p class="testimonial-text">"AI-Portal-sessionen var en ögonöppnare. Vi gick från att se AI som något abstrakt till att ha en konkret, prioriterad handlingsplan. Den tydligaste och mest värdefulla strategidagen vi haft på länge."</p>
+                        <p class="testimonial-author">Marknadschef, SaaS-bolag<span class="separator">|</span><span class="project-details">Projekt: AI-strategi & handlingsplan</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="home-contact-section" class="space-background-section py-20 lg:py-28">
             <div id="home-contact-anchor" class="absolute -top-24"></div>
             <div class="stars-background opacity-40" aria-hidden="true"></div>
@@ -917,7 +1050,7 @@
                     <h2 class="section-title text-4xl md:text-5xl mb-4">Boka ett <span class="section-title-accent relative">Strategisamtal</span></h2>
                     <p class="text-lg text-content-dark-bg max-w-3xl mx-auto">Låt oss utforska hur NordSyncs AI-expertis kan transformera er verksamhet och driva mätbar tillväxt. Välj det spår som passar er bäst nedan.</p>
                 </div>
-                <div class="grid md:grid-cols-2 gap-8 lg:gap-10 mb-16">
+                <div class="grid md:grid-cols-2 gap-8 lg:gap-10 mb-12">
                     <div class="content-card-dark cta-card-transparent items-stretch text-left p-8 rounded-xl"> 
                         <div class="service-pillar-icon-container self-start mb-4">
                             <i class="ph-rocket-launch service-pillar-icon text-3xl"></i>
@@ -937,7 +1070,7 @@
                         </div>
                         <h3 class="text-2xl font-semibold text-heading-dark-bg mb-3">AI-Portal & Strategi</h3>
                         <p class="text-content-dark-bg mb-6 leading-relaxed text-sm flex-grow">
-                            Kickstarta er AI-resa med vår 3-timmars strategisession. Få en skräddarsydd handlingsplan och de insikter ni behöver för att framgångsrikt implementera AI i er verksamhet.
+                            Kickstarta er AI-resa med vår strategisession. Få en skräddarsydd handlingsplan och de insikter ni behöver för att framgångsrikt implementera AI i er verksamhet.
                         </p>
                         <div class="mt-auto">
                             <button type="button" onclick="window.nord.showPage('boka-samtal-portal'); return false;" class="btn-primary text-sm w-full mb-3">Boka Portal-dialog</button>
@@ -946,13 +1079,12 @@
                     </div>
                 </div>
                 
-                <div class="key-transformation-container">
-                    <div class="key-graphic-wrapper">
-                        <i class="ph-lock-key-open key-icon"></i>
-                    </div>
-                    <p class="text-center text-content-dark-bg max-w-2xl mx-auto mt-1 text-lg" id="vennTargetTextBottom">
-                       Lås upp er fulla potential. Ett strategisamtal med oss är nyckeln till att omvandla er verksamhet med AI.
-                    </p>
+                 <div class="text-center mt-12 border-t border-sky-800/50 pt-10">
+                    <p class="text-content-dark-bg mb-4">Osäker på var du ska börja? Eller vill du bara ha ett snabbt, oförpliktigande samtal?</p>
+                    <a href="#" onclick="window.nord.showPage('boka-samtal-intro'); return false;" class="btn-intro-cta inline-flex items-center gap-2">
+                        <i class="ph-coffee"></i>
+                        Boka ett 15-minuters intro
+                    </a>
                 </div>
 
             </div>
@@ -1079,7 +1211,8 @@
                     
                     <div class="text-center mb-16 lg:mb-20 reactor-phase"> 
                         <div class="reactor-phase-content">
-                            <h2 class="section-title text-4xl md:text-5xl mb-4">NordSyncs <span class="section-title-accent relative">AI-Reaktor</span></h2>
+                            <h2 class="section-title text-4xl md:text-5xl mb-2">NordSyncs <span class="section-title-accent relative">AI-Reaktor</span></h2>
+                            <p class="text-lg text-sky-200 max-w-3xl mx-auto italic mb-4">Vi bygger det åt er: Skräddarsydda, implementerade AI-system som arbetar autonomt i er verksamhet.</p>
                             <p class="text-lg text-content-dark-bg max-w-3xl mx-auto">Upptäck hur NordSyncs AI-Reaktor omsorgsfullt kanaliserar kraften i artificiell intelligens och omvandlar era affärsutmaningar och data till ett <strong>levande, skalbart AI-ekosystem</strong>. Ett system designat för att optimera processer, generera insikter och skapa en hållbar konkurrensfördel i den digitala tidsåldern.</p>
                         </div>
                     </div>
@@ -1183,7 +1316,8 @@
                                         </div>
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Automatiserad Kunddialog</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Effektivisera er kundservice och frigör tid med en intelligent AI-agent som hanterar vanliga frågor och ärenden dygnet runt, med er unika röst.</p>
-                                        <div class="mt-4">
+                                        <div class="metric-badge"><i class="ph ph-check-circle"></i><span>+40% ärenden lösta autonomt</span></div>
+                                        <div class="mt-auto">
                                             <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
@@ -1200,7 +1334,8 @@
                                         </div>
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Dynamisk Dataanalys</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Omvandla komplexa datamängder till omedelbara, värdefulla insikter och automatiserade rapporter för skarpare affärsbeslut.</p>
-                                        <div class="mt-4">
+                                        <div class="metric-badge"><i class="ph ph-timer"></i><span>-95% tid för rapportgenerering</span></div>
+                                        <div class="mt-auto">
                                             <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
@@ -1217,7 +1352,8 @@
                                         </div>
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Intelligent Processoptimering</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Identifiera flaskhalsar och effektivisera era interna arbetsflöden med skräddarsydda AI-system som lär sig och förbättras.</p>
-                                         <div class="mt-4">
+                                         <div class="metric-badge"><i class="ph ph-hourglass-high"></i><span>20+ tim/v frigjord admin-tid</span></div>
+                                         <div class="mt-auto">
                                             <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
@@ -1234,7 +1370,8 @@
                                         </div>
                                         <h4 class="text-xl font-semibold text-heading-dark-bg my-2">Skalbara AI-System</h4>
                                         <p class="text-content-dark-bg text-sm leading-relaxed flex-grow">Våra AI-system är byggda för att växa med er, och säkerställer att er kapacitet kan skalas upp dynamiskt för att möta nya krav.</p>
-                                         <div class="mt-4">
+                                         <div class="metric-badge"><i class="ph ph-globe"></i><span>Möjliggjorde ny marknadsexpansion</span></div>
+                                         <div class="mt-auto">
                                             <button onclick="window.nord.toggleSolutionExampleDetails(this)" class="btn-read-more">Läs mer</button>
                                         </div>
                                         <div class="solution-example-details">
@@ -1259,8 +1396,9 @@
             <div class="section-content-wrapper page-content-padding">
                 <div class="portal-content-container">
                     <div class="text-center mb-16 lg:mb-20">
-                        <h2 class="section-title text-4xl md:text-5xl mb-4">Från Idé till Handlingsplan: <span class="section-title-accent relative">NordSyncs AI-Portal</span></h2>
-                        <p class="text-lg text-content-dark-bg max-w-3xl mx-auto">Under tre intensiva timmar omvandlar vi era affärsutmaningar till en konkret AI-strategi. Vi dyker djupt i er verksamhet, identifierar era mest värdefulla möjligheter och ger er en tydlig, prioriterad handlingsplan för att omedelbart kunna agera.</p>
+                        <h2 class="section-title text-4xl md:text-5xl mb-2">Från Idé till Handlingsplan: <span class="section-title-accent relative">NordSyncs AI-Portal</span></h2>
+                        <p class="text-lg text-sky-200 max-w-3xl mx-auto italic mb-4">Vi stärker er: En intensiv strategisession som ger er kunskapen och en konkret handlingsplan för att lyckas med AI.</p>
+                        <p class="text-lg text-content-dark-bg max-w-3xl mx-auto">Under en intensiv strategisession omvandlar vi era affärsutmaningar till en konkret AI-strategi. Vi dyker djupt i er verksamhet, identifierar era mest värdefulla möjligheter och ger er en tydlig, prioriterad handlingsplan för att omedelbart kunna agera.</p>
                     </div>
                     
                     <div class="max-w-4xl mx-auto">
@@ -1313,19 +1451,19 @@
                                 </div>
                                 <div class="portal-step-node-content">
                                     <h4>2. Personlig Dialog & Planering</h4>
-                                    <p class="portal-step-node-summary">Vi diskuterar era specifika utmaningar och bokar tillsammans in er 3-timmars interaktiva strategisession.</p>
+                                    <p class="portal-step-node-summary">Vi diskuterar era specifika utmaningar och bokar tillsammans in er interaktiva strategisession.</p>
                                     <div class="portal-step-node-details">
-                                        <p>Baserat på den initiala behovsanalysen fördjupar vi dialogen. Vi säkerställer att vi har en gemensam bild av era förväntningar och mål. Därefter bokar vi in er 3-timmars session – digitalt eller på plats – vid en tidpunkt som passar ert team. Vi förbereder även eventuellt material som kan vara relevant för just er bransch.</p>
+                                        <p>Baserat på den initiala behovsanalysen fördjupar vi dialogen. Vi säkerställer att vi har en gemensam bild av era förväntningar och mål. Därefter bokar vi in er session – digitalt eller på plats – vid en tidpunkt som passar ert team. Vi förbereder även eventuellt material som kan vara relevant för just er bransch.</p>
                                     </div>
                                 </div>
                             </div>
-                            <div class="portal-step-node" onclick="window.nord.togglePortalStepDetails(this)">
+                             <div class="portal-step-node" onclick="window.nord.togglePortalStepDetails(this)">
                                  <div class="portal-step-node-icon-container">
                                     <i class="ph ph-brain animated-symbol"></i>
                                 </div>
                                 <div class="portal-step-node-content">
                                     <h4>3. Interaktiv & Skräddarsydd Session</h4>
-                                    <p class="portal-step-node-summary">Under tre intensiva timmar lär vi er identifiera AI-möjligheter, analysera processer och brainstorma lösningar.</p>
+                                    <p class="portal-step-node-summary">Under sessionen lär vi er identifiera AI-möjligheter, analysera processer och brainstorma lösningar.</p>
                                     <div class="portal-step-node-details">
                                         <p>Nu kör vi! Sessionen är dynamisk och interaktiv där vi tillsammans med er och era nyckelpersoner djupdyker i er verksamhet. Vi använder beprövade metoder för att identifiera de områden där AI kan skapa störst värde, analyserar befintliga processer och brainstormar fram konkreta, innovativa lösningar. Ni får verktyg och kunskap att ta med er direkt.</p>
                                     </div>
@@ -1344,6 +1482,33 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="customer-journey-section">
+                            <div class="section-content-wrapper">
+                                <h3 class="text-2xl font-semibold text-center text-nord-sync-light-accent mb-2">Från Portal till Ekosystem: Er Tillväxtresa</h3>
+                                <p class="text-center text-content-dark-bg max-w-2xl mx-auto mb-12 text-md">En AI-Portal är ofta bara början. Vi designar våra partnerskap för stegvis evolution, där initiala insikter kan växa till fullskaliga, autonoma system.</p>
+                                <div class="journey-container">
+                                    <div class="journey-step">
+                                        <i class="ph-door-open journey-step-icon"></i>
+                                        <h4 class="journey-step-title">1. Portal</h4>
+                                        <p class="journey-step-description">Startpunkt: En strategisession ger er en skräddarsydd AI-handlingsplan och identifierar den mest värdefulla piloten.</p>
+                                    </div>
+                                    <i class="ph-arrow-right journey-connector"></i>
+                                    <div class="journey-step">
+                                        <i class="ph-rocket journey-step-icon"></i>
+                                        <h4 class="journey-step-title">2. Pilotprojekt</h4>
+                                        <p class="journey-step-description">Validering: Vi implementerar en första, snabb och värdeskapande AI-agent baserad på handlingsplanen för att bevisa ROI.</p>
+                                    </div>
+                                    <i class="ph-arrow-right journey-connector"></i>
+                                    <div class="journey-step">
+                                        <i class="ph-graph journey-step-icon"></i>
+                                        <h4 class="journey-step-title">3. Ekosystem</h4>
+                                        <p class="journey-step-description">Skalning: Vi bygger ut och integrerar fler agenter till ett fullt, intelligent och autonomt ekosystem som transformerar er verksamhet.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="text-center mt-16">
                              <a href="#" onclick="window.nord.showPage('boka-samtal-portal'); return false;" class="btn-secondary-on-dark inline-block w-full md:w-auto">Starta er AI-Portal</a>
                         </div>
@@ -1351,8 +1516,10 @@
                 </div>
                 <div class="portal-newsletter-container">
                     <div class="newsletter-section p-8 rounded-lg">
-                        <h3 class="text-2xl font-semibold text-heading-dark-bg mb-3 text-center">Håll Dig Uppdaterad</h3>
-                        <p class="text-content-dark-bg mb-6 max-w-xl mx-auto text-center">Prenumerera på vårt nyhetsbrev för de senaste insikterna inom AI för SME, nya lösningar från NordSync och exklusiva erbjudanden.</p>
+                        <div class="text-center">
+                             <h3 class="text-2xl font-semibold text-heading-dark-bg mb-3">Insikter från Frontlinjen</h3>
+                             <p class="text-content-dark-bg mb-6 max-w-xl mx-auto">Gå med i vårt nyhetsbrev för strategier, analyser och verkliga exempel på hur AI skapar mätbart värde för företag som ert.</p>
+                        </div>
                         <form id="newsletterForm" class="max-w-md mx-auto flex gap-2">
                             <input type="hidden" name="_subject" value="Ny prenumerant till nyhetsbrevet från nordsync.se">
                             <input type="email" name="email" id="newsletterEmail" placeholder="Din e-postadress" required class="form-input flex-grow">
@@ -1561,7 +1728,7 @@
                         </div>
                         <div class="form-step" data-step="3">
                              <h4 class="text-lg font-medium text-sky-100 mb-4">Steg 3/4: Förväntningar</h4>
-                            <div><label for="portal-expectations" class="form-label">Vad är det viktigaste ni hoppas få ut av en 3-timmars AI-strategisession?</label><textarea name="expectations" id="portal-expectations" rows="3" class="form-textarea"></textarea></div>
+                            <div><label for="portal-expectations" class="form-label">Vad är det viktigaste ni hoppas få ut av en AI-strategisession?</label><textarea name="expectations" id="portal-expectations" rows="3" class="form-textarea"></textarea></div>
                             <div><label for="portal-focus" class="form-label">Finns det specifika områden eller frågeställningar ni vill att sessionen ska täcka?</label><textarea name="focus-areas" id="portal-focus" rows="2" class="form-textarea"></textarea></div>
                             <div><label for="portal-ai-experience" class="form-label">Erfarenhet av AI inom teamet?</label><select id="portal-ai-experience" name="ai-experience" class="form-select"><option>Ingen tidigare erfarenhet</option><option>Grundläggande kännedom</option><option>Har testat vissa AI-verktyg</option><option>Använder AI i vissa processer</option></select></div>
                             <div class="flex justify-between mt-6"><button type="button" onclick="window.nord.prevCustomFormStep('formAiPortal', 3)" class="btn-secondary-on-dark text-sm"><i class="ph-arrow-left mr-2"></i>Föregående</button><button type="button" onclick="window.nord.nextCustomFormStep('formAiPortal', 3)" class="btn-primary">Nästa <i class="ph-arrow-right ml-2"></i></button></div>
@@ -1580,14 +1747,48 @@
                 </div>
             </div>
         </section>
+        
+        <section id="boka-samtal-intro" class="space-background-section page-content-padding" style="display: none;">
+            <div class="stars-background opacity-50" aria-hidden="true"></div>
+            <div class="section-content-wrapper text-center">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Boka ett 15-minuters Intro</h2>
+                 <p class="text-lg text-content-dark-bg max-w-xl mx-auto mb-10">Helt oförpliktigande. Vi pratar kort om era utmaningar och ser om det finns en potentiell matchning. Fyll i formuläret nedan så återkommer vi med förslag på tider.</p>
+                 <div id="formIntroContainer" class="content-card-transparent p-8 md:p-12 mt-10 max-w-md mx-auto text-left">
+                    <form id="formIntro">
+                        <input type="hidden" name="_subject" value="Ny förfrågan: 15-minuters Intro från nordsync.se">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="intro-name" class="form-label">Ditt Namn</label>
+                                <input type="text" name="name" id="intro-name" required class="form-input">
+                            </div>
+                             <div>
+                                <label for="intro-company" class="form-label">Företagsnamn</label>
+                                <input type="text" name="company" id="intro-company" required class="form-input">
+                            </div>
+                            <div>
+                                <label for="intro-email" class="form-label">E-post</label>
+                                <input type="email" name="email" id="intro-email" required class="form-input">
+                            </div>
+                             <div>
+                                <label for="intro-challenge" class="form-label">Vad är er största utmaning just nu? (valfritt, ett par ord räcker)</label>
+                                <input type="text" name="challenge" id="intro-challenge" class="form-input">
+                            </div>
+                            <button type="submit" class="btn-primary w-full text-lg">Skicka & Boka Intro</button>
+                        </div>
+                    </form>
+                    <div id="formIntroSuccessMessage" class="form-message form-success-message"></div>
+                    <div id="formIntroErrorMessage" class="form-message form-error-message"></div>
+                </div>
+            </div>
+        </section>
         </main>
 
     <footer class="relative bg-nord-sync-deep-space-blue">
         <div class="stars-background opacity-20" aria-hidden="true"></div>
-        <div class="section-content-wrapper py-6 relative z-10">
-            <div class="grid md:grid-cols-3 gap-6 text-sm">
+        <div class="section-content-wrapper py-10 relative z-10">
+            <div class="grid md:grid-cols-4 gap-8 text-sm">
                 <div class="md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
-                    <a href="#" onclick="window.nord.showPage('hero'); return false;" class="inline-block mb-2">
+                    <a href="#" onclick="window.nord.showPage('hero'); return false;" class="inline-block mb-4">
                         <img src="https://raw.githubusercontent.com/NordSync/Logga-minus-text/main/Final%20logo%20no%20text.svg" alt="NordSync Logotyp" class="h-16">
                     </a>
                     <p class="text-xs text-content-dark-bg">AI-drivna system med mänsklig insikt och teknologisk precision.</p>
@@ -1611,8 +1812,12 @@
                         <a href="https://www.instagram.com/nordsync_ab/" target="_blank" rel="noopener noreferrer" class="social-icon-link footer-link inline-flex items-center"><i class="ph-instagram-logo mr-2"></i><span class="footer-link-text">Instagram</span></a>
                     </div>
                 </div>
+                <div class="md:col-span-1 text-center md:text-left">
+                     <p class="font-semibold text-nord-sync-text-light mb-2">Vision</p>
+                     <p class="text-xs text-content-dark-bg">Framöver lanserar vi <strong>NordSync Nexus</strong> – en personlig portal där våra partners i realtid kan följa sina AI-systems prestanda och få tillgång till skräddarsydda insikter.</p>
+                </div>
             </div>
-            <div class="mt-6 border-t border-sky-700/50 pt-4 text-center">
+            <div class="mt-8 border-t border-sky-700/50 pt-6 text-center">
                 <p class="text-xs text-content-dark-bg">© <span id="currentYear"></span> NordSync AB. Alla rättigheter förbehållna.</p>
             </div>
         </div>
@@ -1853,7 +2058,7 @@
                 document.querySelectorAll('main > section').forEach(section => section.style.display = 'none');
 
                 if (pageIdToShow === 'hero') {
-                    ['hero', 'home-diagram-section', 'home-contact-section'].forEach(id => {
+                    ['hero', 'home-diagram-section', 'home-testimonials-section', 'home-contact-section'].forEach(id => {
                         const section = document.getElementById(id);
                         if (section) section.style.display = 'flex';
                     });
@@ -1919,7 +2124,8 @@
                 const pageMap = {
                     'vilka-ar-vi': 'om-oss', 
                     'boka-samtal-skraddarsydd': 'ai-reaktor', 
-                    'boka-samtal-portal': 'ai-portal'
+                    'boka-samtal-portal': 'ai-portal',
+                    'boka-samtal-intro': 'hero' 
                 };
                 const activePage = pageMap[currentPageId] || currentPageId;
 
@@ -1950,6 +2156,28 @@
 
             if (mobileMenuTrigger) {
                 mobileMenuTrigger.addEventListener('click', toggleMobileMenu);
+            }
+
+             // --- Interaktiv Kodterminal ---
+            const interactiveTerminal = document.querySelector('.code-terminal-card.interactive');
+            if (interactiveTerminal) {
+                const handleInteraction = () => {
+                    window.nord.showPage('karriar');
+                };
+                
+                const codeElement = interactiveTerminal.querySelector('code');
+                
+                interactiveTerminal.addEventListener('click', () => {
+                    if (codeElement) codeElement.focus();
+                    handleInteraction();
+                });
+                
+                if (codeElement) {
+                    codeElement.addEventListener('keydown', (e) => {
+                        e.preventDefault();
+                        handleInteraction();
+                    });
+                }
             }
 
             // --- Stjärnbakgrund ---
@@ -1986,29 +2214,6 @@
                 }
             }
             setupCareerFormLogic();
-
-             // --- Interaktiv Kodterminal ---
-            const interactiveTerminal = document.querySelector('.code-terminal-card.interactive');
-            if (interactiveTerminal) {
-                const handleInteraction = () => {
-                    window.nord.showPage('karriar');
-                };
-                
-                const codeElement = interactiveTerminal.querySelector('code');
-                
-                interactiveTerminal.addEventListener('click', () => {
-                    if (codeElement) codeElement.focus();
-                    handleInteraction();
-                });
-                
-                if (codeElement) {
-                    codeElement.addEventListener('keydown', (e) => {
-                        e.preventDefault();
-                        handleInteraction();
-                    });
-                }
-            }
-
 
             // --- Robust Formulärhantering ---
             function setupForm(formId, successId, errorId, formspreeId) {
@@ -2051,6 +2256,7 @@
             setupForm('formAiPortal', 'formAiPortalSuccessMessage', 'formAiPortalErrorMessage', 'xnnvjjvz');
             setupForm('jobApplicationForm', 'jobApplicationFormSuccessMessage', 'jobApplicationFormErrorMessage', 'xdkzaazw');
             setupForm('newsletterForm', 'newsletterSuccessMessage', 'newsletterErrorMessage', 'mjkrggre');
+            setupForm('formIntro', 'formIntroSuccessMessage', 'formIntroErrorMessage', 'xkgbzrjb');
             
             // Sätt aktuellt år i footern
             document.getElementById('currentYear').textContent = new Date().getFullYear();
